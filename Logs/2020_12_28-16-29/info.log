@@ -1,0 +1,1827 @@
+2020-12-28 16:29:24,605 : 
+###############################################  Note  ##############################################remove the detach() operation of reprojection loss.
+init lr = 0.001, milestones = [100,180], epoch = 300
+remove msssim loss, alpha = 0, pose_loss_norm = 2 , reproj_range_loss_w= 0.5
+single net + deep rot FC + deep trans FC
+############################################# End Of Note ############################################
+
+2020-12-28 16:29:24,606 : 
+##########################################  Args List  ###########################################
+Namespace(batch_size=48, ckp=None, data_set='dataset/kitti', debug=False, display_step=None, divid_factor=0.5, epoch=300, img_alpha=0, log_path='/home/phy12321/code/Multi_view_Cylinder_Net', lr=0.001, lr_scheduler='MultiStepLR', milestones=[100, 180], momentum=0.9, num_workers=24, on_aigo=True, optimizer='Adam', overlap=20, pose_loss_norm=2, pose_loss_w=1, reproj_normal_loss_w=0.1, reproj_range_loss_w=0.5, rot_form='euler', rot_loss_w=10, shuffle=True, test_num=2000, test_seq=None, train_num_per_class=(8000, 8000, 8000), train_seq=None, trans_loss_w=1, weight_decay=0.005)
+2020-12-28 16:29:49,251 : Train from scratch. 
+2020-12-28 16:29:51,140 : 33.689832M  total parameters.
+2020-12-28 16:29:51,141 : 33.689832M  training parameters.
+2020-12-28 16:29:51,141 : use Adam as optimizer
+2020-12-28 16:29:51,143 : use Multi-Step lr scheduler
+2020-12-28 16:29:51,143 : use fixed weighted sum loss
+2020-12-28 16:29:51,143 : ('train_seq:', None, '; number of train_data:24000')
+2020-12-28 16:29:51,143 : ('test_seq:', None, ' number of test_data:2016')
+2020-12-28 16:29:51,143 : 
+##########################################  END of Args List ######################################
+
+
+2020-12-28 16:29:51,143 : **** Epoch:1/300
+2020-12-28 16:42:02,428 :  *  train_loss / train_pose_loss / train_pixel_loss:8.2111 / 5.9184 / 4.5855
+2020-12-28 16:43:12,267 :  *  test_loss / test_pose_loss / test_pixel_loss: 4.2386 / 1.693 / 5.0912
+2020-12-28 16:43:12,966 : current best epoch : 1
+2020-12-28 16:43:12,967 : learning_rate = [0.001, 0.001]
+2020-12-28 16:43:12,967 : using time: 13.3637 min
+2020-12-28 16:43:12,967 : **** Epoch:2/300
+2020-12-28 16:55:02,774 :  *  train_loss / train_pose_loss / train_pixel_loss:4.5739 / 2.8908 / 3.3663
+2020-12-28 16:56:12,539 :  *  test_loss / test_pose_loss / test_pixel_loss: 5.532 / 2.0627 / 6.9385
+2020-12-28 16:56:12,541 : current best epoch : 1
+2020-12-28 16:56:12,541 : learning_rate = [0.001, 0.001]
+2020-12-28 16:56:12,541 : using time: 12.9929 min
+2020-12-28 16:56:12,541 : **** Epoch:3/300
+2020-12-28 17:07:56,136 :  *  train_loss / train_pose_loss / train_pixel_loss:3.2437 / 1.8702 / 2.7469
+2020-12-28 17:09:09,506 :  *  test_loss / test_pose_loss / test_pixel_loss: 8.0358 / 2.6617 / 10.7483
+2020-12-28 17:09:09,508 : current best epoch : 1
+2020-12-28 17:09:09,508 : learning_rate = [0.001, 0.001]
+2020-12-28 17:09:09,508 : using time: 12.9494 min
+2020-12-28 17:09:09,508 : **** Epoch:4/300
+2020-12-28 17:20:57,532 :  *  train_loss / train_pose_loss / train_pixel_loss:2.5511 / 1.3157 / 2.4708
+2020-12-28 17:22:07,131 :  *  test_loss / test_pose_loss / test_pixel_loss: 8.8791 / 1.0679 / 15.6224
+2020-12-28 17:22:07,132 : current best epoch : 1
+2020-12-28 17:22:07,132 : learning_rate = [0.001, 0.001]
+2020-12-28 17:22:07,132 : using time: 12.9604 min
+2020-12-28 17:22:07,132 : **** Epoch:5/300
+2020-12-28 17:33:54,551 :  *  train_loss / train_pose_loss / train_pixel_loss:2.2426 / 1.1027 / 2.2797
+2020-12-28 17:35:09,141 :  *  test_loss / test_pose_loss / test_pixel_loss: 9.8781 / 1.327 / 17.1022
+2020-12-28 17:35:09,143 : current best epoch : 1
+2020-12-28 17:35:09,143 : learning_rate = [0.001, 0.001]
+2020-12-28 17:35:09,143 : using time: 13.0335 min
+2020-12-28 17:35:09,143 : **** Epoch:6/300
+2020-12-28 17:47:04,962 :  *  train_loss / train_pose_loss / train_pixel_loss:2.2009 / 1.0502 / 2.3015
+2020-12-28 17:48:16,754 :  *  test_loss / test_pose_loss / test_pixel_loss: 6.8564 / 0.9056 / 11.9015
+2020-12-28 17:48:16,756 : current best epoch : 1
+2020-12-28 17:48:16,756 : learning_rate = [0.001, 0.001]
+2020-12-28 17:48:16,756 : using time: 13.1269 min
+2020-12-28 17:48:16,756 : **** Epoch:7/300
+2020-12-28 18:00:03,862 :  *  train_loss / train_pose_loss / train_pixel_loss:2.1316 / 0.9887 / 2.2859
+2020-12-28 18:01:15,898 :  *  test_loss / test_pose_loss / test_pixel_loss: 6.893 / 0.6849 / 12.4161
+2020-12-28 18:01:15,900 : current best epoch : 1
+2020-12-28 18:01:15,900 : learning_rate = [0.001, 0.001]
+2020-12-28 18:01:15,900 : using time: 12.9857 min
+2020-12-28 18:01:15,900 : **** Epoch:8/300
+2020-12-28 18:13:04,819 :  *  train_loss / train_pose_loss / train_pixel_loss:2.0227 / 0.9576 / 2.1303
+2020-12-28 18:14:15,573 :  *  test_loss / test_pose_loss / test_pixel_loss: 5.0292 / 0.6442 / 8.77
+2020-12-28 18:14:15,575 : current best epoch : 1
+2020-12-28 18:14:15,576 : learning_rate = [0.001, 0.001]
+2020-12-28 18:14:15,576 : using time: 12.9946 min
+2020-12-28 18:14:15,576 : **** Epoch:9/300
+2020-12-28 18:26:07,226 :  *  train_loss / train_pose_loss / train_pixel_loss:1.9281 / 0.9113 / 2.0336
+2020-12-28 18:27:17,455 :  *  test_loss / test_pose_loss / test_pixel_loss: 6.5752 / 0.683 / 11.7844
+2020-12-28 18:27:17,456 : current best epoch : 1
+2020-12-28 18:27:17,457 : learning_rate = [0.001, 0.001]
+2020-12-28 18:27:17,457 : using time: 13.0313 min
+2020-12-28 18:27:17,457 : **** Epoch:10/300
+2020-12-28 18:38:51,186 :  *  train_loss / train_pose_loss / train_pixel_loss:1.9002 / 0.883 / 2.0345
+2020-12-28 18:40:01,060 :  *  test_loss / test_pose_loss / test_pixel_loss: 6.9967 / 0.932 / 12.1294
+2020-12-28 18:40:01,062 : current best epoch : 1
+2020-12-28 18:40:01,063 : learning_rate = [0.001, 0.001]
+2020-12-28 18:40:01,063 : using time: 12.7268 min
+2020-12-28 18:40:01,063 : **** Epoch:11/300
+2020-12-28 18:51:28,109 :  *  train_loss / train_pose_loss / train_pixel_loss:1.8365 / 0.8588 / 1.9554
+2020-12-28 18:52:38,097 :  *  test_loss / test_pose_loss / test_pixel_loss: 5.4946 / 0.8063 / 9.3765
+2020-12-28 18:52:38,098 : current best epoch : 1
+2020-12-28 18:52:38,099 : learning_rate = [0.001, 0.001]
+2020-12-28 18:52:38,099 : using time: 12.6173 min
+2020-12-28 18:52:38,099 : **** Epoch:12/300
+2020-12-28 19:04:13,465 :  *  train_loss / train_pose_loss / train_pixel_loss:1.7482 / 0.8288 / 1.8388
+2020-12-28 19:05:22,890 :  *  test_loss / test_pose_loss / test_pixel_loss: 3.9207 / 1.0331 / 5.7753
+2020-12-28 19:05:27,009 : current best epoch : 12
+2020-12-28 19:05:27,010 : learning_rate = [0.001, 0.001]
+2020-12-28 19:05:27,010 : using time: 12.8152 min
+2020-12-28 19:05:27,010 : **** Epoch:13/300
+2020-12-28 19:16:56,870 :  *  train_loss / train_pose_loss / train_pixel_loss:1.7625 / 0.8367 / 1.8516
+2020-12-28 19:18:09,482 :  *  test_loss / test_pose_loss / test_pixel_loss: 4.9304 / 0.5749 / 8.7111
+2020-12-28 19:18:09,484 : current best epoch : 12
+2020-12-28 19:18:09,484 : learning_rate = [0.001, 0.001]
+2020-12-28 19:18:09,484 : using time: 12.7079 min
+2020-12-28 19:18:09,484 : **** Epoch:14/300
+2020-12-28 19:29:37,626 :  *  train_loss / train_pose_loss / train_pixel_loss:1.7512 / 0.8265 / 1.8494
+2020-12-28 19:30:47,195 :  *  test_loss / test_pose_loss / test_pixel_loss: 8.1201 / 1.0746 / 14.091
+2020-12-28 19:30:47,196 : current best epoch : 12
+2020-12-28 19:30:47,197 : learning_rate = [0.001, 0.001]
+2020-12-28 19:30:47,197 : using time: 12.6285 min
+2020-12-28 19:30:47,197 : **** Epoch:15/300
+2020-12-28 19:42:15,600 :  *  train_loss / train_pose_loss / train_pixel_loss:1.7173 / 0.8181 / 1.7984
+2020-12-28 19:43:24,570 :  *  test_loss / test_pose_loss / test_pixel_loss: 4.6934 / 0.6587 / 8.0695
+2020-12-28 19:43:24,571 : current best epoch : 12
+2020-12-28 19:43:24,572 : learning_rate = [0.001, 0.001]
+2020-12-28 19:43:24,572 : using time: 12.6229 min
+2020-12-28 19:43:24,572 : **** Epoch:16/300
+2020-12-28 19:54:56,980 :  *  train_loss / train_pose_loss / train_pixel_loss:1.6909 / 0.7583 / 1.8652
+2020-12-28 19:56:08,173 :  *  test_loss / test_pose_loss / test_pixel_loss: 5.1056 / 0.6387 / 8.9338
+2020-12-28 19:56:08,175 : current best epoch : 12
+2020-12-28 19:56:08,176 : learning_rate = [0.001, 0.001]
+2020-12-28 19:56:08,176 : using time: 12.7267 min
+2020-12-28 19:56:08,176 : **** Epoch:17/300
+2020-12-28 20:07:44,990 :  *  train_loss / train_pose_loss / train_pixel_loss:1.6639 / 0.7672 / 1.7934
+2020-12-28 20:08:57,380 :  *  test_loss / test_pose_loss / test_pixel_loss: 4.919 / 0.8076 / 8.2228
+2020-12-28 20:08:57,381 : current best epoch : 12
+2020-12-28 20:08:57,381 : learning_rate = [0.001, 0.001]
+2020-12-28 20:08:57,382 : using time: 12.8201 min
+2020-12-28 20:08:57,382 : **** Epoch:18/300
+2020-12-28 20:20:28,453 :  *  train_loss / train_pose_loss / train_pixel_loss:1.6375 / 0.7648 / 1.7454
+2020-12-28 20:21:37,326 :  *  test_loss / test_pose_loss / test_pixel_loss: 4.6942 / 0.6212 / 8.1461
+2020-12-28 20:21:37,328 : current best epoch : 12
+2020-12-28 20:21:37,328 : learning_rate = [0.001, 0.001]
+2020-12-28 20:21:37,328 : using time: 12.6658 min
+2020-12-28 20:21:37,328 : **** Epoch:19/300
+2020-12-28 20:33:11,873 :  *  train_loss / train_pose_loss / train_pixel_loss:1.6412 / 0.7601 / 1.7621
+2020-12-28 20:34:25,202 :  *  test_loss / test_pose_loss / test_pixel_loss: 4.1294 / 0.5375 / 7.1838
+2020-12-28 20:34:25,203 : current best epoch : 12
+2020-12-28 20:34:25,203 : learning_rate = [0.001, 0.001]
+2020-12-28 20:34:25,203 : using time: 12.7979 min
+2020-12-28 20:34:25,203 : **** Epoch:20/300
+2020-12-28 20:46:13,216 :  *  train_loss / train_pose_loss / train_pixel_loss:1.6056 / 0.7442 / 1.7227
+2020-12-28 20:47:24,263 :  *  test_loss / test_pose_loss / test_pixel_loss: 5.2166 / 0.6503 / 9.1325
+2020-12-28 20:47:24,265 : current best epoch : 12
+2020-12-28 20:47:24,265 : learning_rate = [0.001, 0.001]
+2020-12-28 20:47:24,265 : using time: 12.9844 min
+2020-12-28 20:47:24,265 : **** Epoch:21/300
+2020-12-28 20:59:17,932 :  *  train_loss / train_pose_loss / train_pixel_loss:1.6211 / 0.7458 / 1.7506
+2020-12-28 21:00:29,666 :  *  test_loss / test_pose_loss / test_pixel_loss: 4.9947 / 0.8149 / 8.3595
+2020-12-28 21:00:29,668 : current best epoch : 12
+2020-12-28 21:00:29,668 : learning_rate = [0.001, 0.001]
+2020-12-28 21:00:29,668 : using time: 13.0901 min
+2020-12-28 21:00:29,668 : **** Epoch:22/300
+2020-12-28 21:12:03,084 :  *  train_loss / train_pose_loss / train_pixel_loss:1.5668 / 0.7289 / 1.6758
+2020-12-28 21:13:14,584 :  *  test_loss / test_pose_loss / test_pixel_loss: 5.1578 / 0.65 / 9.0155
+2020-12-28 21:13:14,585 : current best epoch : 12
+2020-12-28 21:13:14,586 : learning_rate = [0.001, 0.001]
+2020-12-28 21:13:14,586 : using time: 12.7486 min
+2020-12-28 21:13:14,586 : **** Epoch:23/300
+2020-12-28 21:24:43,589 :  *  train_loss / train_pose_loss / train_pixel_loss:1.5413 / 0.7202 / 1.6421
+2020-12-28 21:25:54,213 :  *  test_loss / test_pose_loss / test_pixel_loss: 2.5814 / 0.4181 / 4.3266
+2020-12-28 21:25:58,288 : current best epoch : 23
+2020-12-28 21:25:58,289 : learning_rate = [0.001, 0.001]
+2020-12-28 21:25:58,289 : using time: 12.7284 min
+2020-12-28 21:25:58,289 : **** Epoch:24/300
+2020-12-28 21:37:45,614 :  *  train_loss / train_pose_loss / train_pixel_loss:1.5013 / 0.6998 / 1.6031
+2020-12-28 21:38:56,156 :  *  test_loss / test_pose_loss / test_pixel_loss: 5.5605 / 0.6341 / 9.8529
+2020-12-28 21:38:56,158 : current best epoch : 23
+2020-12-28 21:38:56,158 : learning_rate = [0.001, 0.001]
+2020-12-28 21:38:56,158 : using time: 12.9645 min
+2020-12-28 21:38:56,158 : **** Epoch:25/300
+2020-12-28 21:50:50,052 :  *  train_loss / train_pose_loss / train_pixel_loss:1.5359 / 0.7128 / 1.6463
+2020-12-28 21:51:59,918 :  *  test_loss / test_pose_loss / test_pixel_loss: 2.6574 / 0.51 / 4.2947
+2020-12-28 21:51:59,919 : current best epoch : 23
+2020-12-28 21:51:59,920 : learning_rate = [0.001, 0.001]
+2020-12-28 21:51:59,920 : using time: 13.0627 min
+2020-12-28 21:51:59,920 : **** Epoch:26/300
+2020-12-28 22:03:40,213 :  *  train_loss / train_pose_loss / train_pixel_loss:1.5504 / 0.7143 / 1.6722
+2020-12-28 22:04:50,594 :  *  test_loss / test_pose_loss / test_pixel_loss: 5.022 / 0.5164 / 9.0112
+2020-12-28 22:04:50,596 : current best epoch : 23
+2020-12-28 22:04:50,596 : learning_rate = [0.001, 0.001]
+2020-12-28 22:04:50,596 : using time: 12.8446 min
+2020-12-28 22:04:50,596 : **** Epoch:27/300
+2020-12-28 22:16:26,276 :  *  train_loss / train_pose_loss / train_pixel_loss:1.4914 / 0.686 / 1.6108
+2020-12-28 22:17:36,009 :  *  test_loss / test_pose_loss / test_pixel_loss: 6.6211 / 0.7072 / 11.8279
+2020-12-28 22:17:36,010 : current best epoch : 23
+2020-12-28 22:17:36,011 : learning_rate = [0.001, 0.001]
+2020-12-28 22:17:36,011 : using time: 12.7569 min
+2020-12-28 22:17:36,011 : **** Epoch:28/300
+2020-12-28 22:29:23,974 :  *  train_loss / train_pose_loss / train_pixel_loss:1.4404 / 0.6934 / 1.4942
+2020-12-28 22:30:33,539 :  *  test_loss / test_pose_loss / test_pixel_loss: 3.6243 / 0.4274 / 6.3938
+2020-12-28 22:30:33,541 : current best epoch : 23
+2020-12-28 22:30:33,541 : learning_rate = [0.001, 0.001]
+2020-12-28 22:30:33,541 : using time: 12.9588 min
+2020-12-28 22:30:33,541 : **** Epoch:29/300
+2020-12-28 22:42:22,224 :  *  train_loss / train_pose_loss / train_pixel_loss:1.5372 / 0.6987 / 1.677
+2020-12-28 22:43:31,836 :  *  test_loss / test_pose_loss / test_pixel_loss: 4.6333 / 0.4345 / 8.3975
+2020-12-28 22:43:31,838 : current best epoch : 23
+2020-12-28 22:43:31,838 : learning_rate = [0.001, 0.001]
+2020-12-28 22:43:31,838 : using time: 12.9716 min
+2020-12-28 22:43:31,838 : **** Epoch:30/300
+2020-12-28 22:55:14,690 :  *  train_loss / train_pose_loss / train_pixel_loss:1.4762 / 0.7079 / 1.5366
+2020-12-28 22:56:26,449 :  *  test_loss / test_pose_loss / test_pixel_loss: 5.3865 / 0.7101 / 9.353
+2020-12-28 22:56:26,450 : current best epoch : 23
+2020-12-28 22:56:26,451 : learning_rate = [0.001, 0.001]
+2020-12-28 22:56:26,451 : using time: 12.9102 min
+2020-12-28 22:56:26,451 : **** Epoch:31/300
+2020-12-28 23:08:01,663 :  *  train_loss / train_pose_loss / train_pixel_loss:1.515 / 0.7135 / 1.603
+2020-12-28 23:09:11,602 :  *  test_loss / test_pose_loss / test_pixel_loss: 3.3222 / 0.4903 / 5.6638
+2020-12-28 23:09:11,603 : current best epoch : 23
+2020-12-28 23:09:11,603 : learning_rate = [0.001, 0.001]
+2020-12-28 23:09:11,603 : using time: 12.7525 min
+2020-12-28 23:09:11,603 : **** Epoch:32/300
+2020-12-28 23:20:38,741 :  *  train_loss / train_pose_loss / train_pixel_loss:1.4494 / 0.6751 / 1.5485
+2020-12-28 23:21:50,140 :  *  test_loss / test_pose_loss / test_pixel_loss: 2.8578 / 0.4069 / 4.9018
+2020-12-28 23:21:50,142 : current best epoch : 23
+2020-12-28 23:21:50,142 : learning_rate = [0.001, 0.001]
+2020-12-28 23:21:50,142 : using time: 12.6423 min
+2020-12-28 23:21:50,142 : **** Epoch:33/300
+2020-12-28 23:33:36,791 :  *  train_loss / train_pose_loss / train_pixel_loss:1.3047 / 0.5854 / 1.4385
+2020-12-28 23:34:47,110 :  *  test_loss / test_pose_loss / test_pixel_loss: 4.2507 / 0.6464 / 7.2086
+2020-12-28 23:34:47,112 : current best epoch : 23
+2020-12-28 23:34:47,112 : learning_rate = [0.001, 0.001]
+2020-12-28 23:34:47,112 : using time: 12.9495 min
+2020-12-28 23:34:47,112 : **** Epoch:34/300
+2020-12-28 23:46:36,293 :  *  train_loss / train_pose_loss / train_pixel_loss:1.2604 / 0.5479 / 1.4249
+2020-12-28 23:47:46,082 :  *  test_loss / test_pose_loss / test_pixel_loss: 3.4795 / 0.4886 / 5.9819
+2020-12-28 23:47:46,083 : current best epoch : 23
+2020-12-28 23:47:46,083 : learning_rate = [0.001, 0.001]
+2020-12-28 23:47:46,083 : using time: 12.9829 min
+2020-12-28 23:47:46,083 : **** Epoch:35/300
+2020-12-28 23:59:12,371 :  *  train_loss / train_pose_loss / train_pixel_loss:1.1481 / 0.4943 / 1.3078
+2020-12-29 00:00:23,611 :  *  test_loss / test_pose_loss / test_pixel_loss: 4.6353 / 0.7693 / 7.732
+2020-12-29 00:00:23,613 : current best epoch : 23
+2020-12-29 00:00:23,613 : learning_rate = [0.001, 0.001]
+2020-12-29 00:00:23,613 : using time: 12.6255 min
+2020-12-29 00:00:23,613 : **** Epoch:36/300
+2020-12-29 00:12:03,773 :  *  train_loss / train_pose_loss / train_pixel_loss:1.1539 / 0.4832 / 1.3414
+2020-12-29 00:13:13,923 :  *  test_loss / test_pose_loss / test_pixel_loss: 2.8943 / 0.4065 / 4.9756
+2020-12-29 00:13:13,924 : current best epoch : 23
+2020-12-29 00:13:13,924 : learning_rate = [0.001, 0.001]
+2020-12-29 00:13:13,924 : using time: 12.8385 min
+2020-12-29 00:13:13,924 : **** Epoch:37/300
+2020-12-29 00:24:53,504 :  *  train_loss / train_pose_loss / train_pixel_loss:1.0787 / 0.4549 / 1.2478
+2020-12-29 00:26:04,243 :  *  test_loss / test_pose_loss / test_pixel_loss: 2.471 / 0.3261 / 4.2898
+2020-12-29 00:26:08,298 : current best epoch : 37
+2020-12-29 00:26:08,298 : learning_rate = [0.001, 0.001]
+2020-12-29 00:26:08,298 : using time: 12.9062 min
+2020-12-29 00:26:08,298 : **** Epoch:38/300
+2020-12-29 00:37:48,729 :  *  train_loss / train_pose_loss / train_pixel_loss:1.0759 / 0.4273 / 1.2973
+2020-12-29 00:38:57,762 :  *  test_loss / test_pose_loss / test_pixel_loss: 2.6475 / 0.4366 / 4.4217
+2020-12-29 00:38:57,764 : current best epoch : 37
+2020-12-29 00:38:57,764 : learning_rate = [0.001, 0.001]
+2020-12-29 00:38:57,764 : using time: 12.8244 min
+2020-12-29 00:38:57,764 : **** Epoch:39/300
+2020-12-29 00:50:34,597 :  *  train_loss / train_pose_loss / train_pixel_loss:1.0377 / 0.4217 / 1.232
+2020-12-29 00:51:45,136 :  *  test_loss / test_pose_loss / test_pixel_loss: 4.5164 / 0.6847 / 7.6635
+2020-12-29 00:51:45,137 : current best epoch : 37
+2020-12-29 00:51:45,138 : learning_rate = [0.001, 0.001]
+2020-12-29 00:51:45,138 : using time: 12.7896 min
+2020-12-29 00:51:45,138 : **** Epoch:40/300
+2020-12-29 01:03:18,846 :  *  train_loss / train_pose_loss / train_pixel_loss:1.068 / 0.4222 / 1.2915
+2020-12-29 01:04:30,030 :  *  test_loss / test_pose_loss / test_pixel_loss: 3.1005 / 0.3998 / 5.4012
+2020-12-29 01:04:30,031 : current best epoch : 37
+2020-12-29 01:04:30,032 : learning_rate = [0.001, 0.001]
+2020-12-29 01:04:30,032 : using time: 12.7482 min
+2020-12-29 01:04:30,032 : **** Epoch:41/300
+2020-12-29 01:16:00,215 :  *  train_loss / train_pose_loss / train_pixel_loss:0.9703 / 0.3834 / 1.1738
+2020-12-29 01:17:12,822 :  *  test_loss / test_pose_loss / test_pixel_loss: 4.0053 / 0.6048 / 6.801
+2020-12-29 01:17:12,824 : current best epoch : 37
+2020-12-29 01:17:12,824 : learning_rate = [0.001, 0.001]
+2020-12-29 01:17:12,824 : using time: 12.7132 min
+2020-12-29 01:17:12,824 : **** Epoch:42/300
+2020-12-29 01:28:50,551 :  *  train_loss / train_pose_loss / train_pixel_loss:0.9976 / 0.3833 / 1.2286
+2020-12-29 01:30:01,721 :  *  test_loss / test_pose_loss / test_pixel_loss: 3.7814 / 0.3961 / 6.7705
+2020-12-29 01:30:01,722 : current best epoch : 37
+2020-12-29 01:30:01,722 : learning_rate = [0.001, 0.001]
+2020-12-29 01:30:01,722 : using time: 12.815 min
+2020-12-29 01:30:01,722 : **** Epoch:43/300
+2020-12-29 01:41:42,197 :  *  train_loss / train_pose_loss / train_pixel_loss:0.9366 / 0.3563 / 1.1606
+2020-12-29 01:42:52,228 :  *  test_loss / test_pose_loss / test_pixel_loss: 2.6249 / 0.3055 / 4.6387
+2020-12-29 01:42:52,230 : current best epoch : 37
+2020-12-29 01:42:52,230 : learning_rate = [0.001, 0.001]
+2020-12-29 01:42:52,230 : using time: 12.8418 min
+2020-12-29 01:42:52,230 : **** Epoch:44/300
+2020-12-29 01:54:28,759 :  *  train_loss / train_pose_loss / train_pixel_loss:0.9873 / 0.3713 / 1.2319
+2020-12-29 01:55:38,267 :  *  test_loss / test_pose_loss / test_pixel_loss: 3.3818 / 0.4203 / 5.923
+2020-12-29 01:55:38,269 : current best epoch : 37
+2020-12-29 01:55:38,269 : learning_rate = [0.001, 0.001]
+2020-12-29 01:55:38,269 : using time: 12.7673 min
+2020-12-29 01:55:38,269 : **** Epoch:45/300
+2020-12-29 02:07:09,492 :  *  train_loss / train_pose_loss / train_pixel_loss:0.9415 / 0.3397 / 1.2035
+2020-12-29 02:08:20,626 :  *  test_loss / test_pose_loss / test_pixel_loss: 3.2128 / 0.2743 / 5.8769
+2020-12-29 02:08:20,627 : current best epoch : 37
+2020-12-29 02:08:20,628 : learning_rate = [0.001, 0.001]
+2020-12-29 02:08:20,628 : using time: 12.706 min
+2020-12-29 02:08:20,628 : **** Epoch:46/300
+2020-12-29 02:19:56,541 :  *  train_loss / train_pose_loss / train_pixel_loss:0.9396 / 0.3532 / 1.1728
+2020-12-29 02:21:06,320 :  *  test_loss / test_pose_loss / test_pixel_loss: 2.7003 / 0.3292 / 4.7423
+2020-12-29 02:21:06,321 : current best epoch : 37
+2020-12-29 02:21:06,321 : learning_rate = [0.001, 0.001]
+2020-12-29 02:21:06,321 : using time: 12.7616 min
+2020-12-29 02:21:06,321 : **** Epoch:47/300
+2020-12-29 02:32:43,348 :  *  train_loss / train_pose_loss / train_pixel_loss:0.9334 / 0.3294 / 1.208
+2020-12-29 02:33:54,706 :  *  test_loss / test_pose_loss / test_pixel_loss: 3.1248 / 0.2786 / 5.6923
+2020-12-29 02:33:54,707 : current best epoch : 37
+2020-12-29 02:33:54,708 : learning_rate = [0.001, 0.001]
+2020-12-29 02:33:54,708 : using time: 12.8064 min
+2020-12-29 02:33:54,708 : **** Epoch:48/300
+2020-12-29 02:45:28,678 :  *  train_loss / train_pose_loss / train_pixel_loss:0.9203 / 0.3329 / 1.1748
+2020-12-29 02:46:40,734 :  *  test_loss / test_pose_loss / test_pixel_loss: 4.2822 / 0.3875 / 7.7896
+2020-12-29 02:46:40,736 : current best epoch : 37
+2020-12-29 02:46:40,736 : learning_rate = [0.001, 0.001]
+2020-12-29 02:46:40,736 : using time: 12.7671 min
+2020-12-29 02:46:40,736 : **** Epoch:49/300
+2020-12-29 02:58:10,431 :  *  train_loss / train_pose_loss / train_pixel_loss:0.9061 / 0.3393 / 1.1337
+2020-12-29 02:59:20,100 :  *  test_loss / test_pose_loss / test_pixel_loss: 3.1975 / 0.3339 / 5.7271
+2020-12-29 02:59:20,101 : current best epoch : 37
+2020-12-29 02:59:20,102 : learning_rate = [0.001, 0.001]
+2020-12-29 02:59:20,102 : using time: 12.6561 min
+2020-12-29 02:59:20,102 : **** Epoch:50/300
+2020-12-29 03:10:55,114 :  *  train_loss / train_pose_loss / train_pixel_loss:0.8713 / 0.3247 / 1.0933
+2020-12-29 03:12:04,398 :  *  test_loss / test_pose_loss / test_pixel_loss: 3.1769 / 0.3071 / 5.7395
+2020-12-29 03:12:04,400 : current best epoch : 37
+2020-12-29 03:12:04,400 : learning_rate = [0.001, 0.001]
+2020-12-29 03:12:04,401 : using time: 12.7383 min
+2020-12-29 03:12:04,401 : **** Epoch:51/300
+2020-12-29 03:23:48,011 :  *  train_loss / train_pose_loss / train_pixel_loss:0.8687 / 0.3067 / 1.1239
+2020-12-29 03:25:01,847 :  *  test_loss / test_pose_loss / test_pixel_loss: 3.1245 / 0.3613 / 5.5265
+2020-12-29 03:25:01,849 : current best epoch : 37
+2020-12-29 03:25:01,849 : learning_rate = [0.001, 0.001]
+2020-12-29 03:25:01,850 : using time: 12.9575 min
+2020-12-29 03:25:01,850 : **** Epoch:52/300
+2020-12-29 03:36:35,927 :  *  train_loss / train_pose_loss / train_pixel_loss:0.8945 / 0.3171 / 1.1549
+2020-12-29 03:37:47,788 :  *  test_loss / test_pose_loss / test_pixel_loss: 3.4614 / 0.3776 / 6.1678
+2020-12-29 03:37:47,789 : current best epoch : 37
+2020-12-29 03:37:47,790 : learning_rate = [0.001, 0.001]
+2020-12-29 03:37:47,790 : using time: 12.7657 min
+2020-12-29 03:37:47,790 : **** Epoch:53/300
+2020-12-29 03:49:28,507 :  *  train_loss / train_pose_loss / train_pixel_loss:0.857 / 0.3051 / 1.1037
+2020-12-29 03:50:40,465 :  *  test_loss / test_pose_loss / test_pixel_loss: 2.723 / 0.3124 / 4.8213
+2020-12-29 03:50:40,467 : current best epoch : 37
+2020-12-29 03:50:40,468 : learning_rate = [0.001, 0.001]
+2020-12-29 03:50:40,468 : using time: 12.878 min
+2020-12-29 03:50:40,468 : **** Epoch:54/300
+2020-12-29 04:02:14,226 :  *  train_loss / train_pose_loss / train_pixel_loss:0.8299 / 0.3024 / 1.0549
+2020-12-29 04:03:28,119 :  *  test_loss / test_pose_loss / test_pixel_loss: 2.0115 / 0.2547 / 3.5136
+2020-12-29 04:03:32,211 : current best epoch : 54
+2020-12-29 04:03:32,211 : learning_rate = [0.001, 0.001]
+2020-12-29 04:03:32,212 : using time: 12.8624 min
+2020-12-29 04:03:32,212 : **** Epoch:55/300
+2020-12-29 04:15:01,295 :  *  train_loss / train_pose_loss / train_pixel_loss:0.8281 / 0.3038 / 1.0485
+2020-12-29 04:16:10,492 :  *  test_loss / test_pose_loss / test_pixel_loss: 2.5856 / 0.2502 / 4.6709
+2020-12-29 04:16:10,494 : current best epoch : 54
+2020-12-29 04:16:10,494 : learning_rate = [0.001, 0.001]
+2020-12-29 04:16:10,494 : using time: 12.638 min
+2020-12-29 04:16:10,494 : **** Epoch:56/300
+2020-12-29 04:27:47,893 :  *  train_loss / train_pose_loss / train_pixel_loss:0.8591 / 0.3092 / 1.0997
+2020-12-29 04:28:59,403 :  *  test_loss / test_pose_loss / test_pixel_loss: 2.9335 / 0.3972 / 5.0727
+2020-12-29 04:28:59,405 : current best epoch : 54
+2020-12-29 04:28:59,405 : learning_rate = [0.001, 0.001]
+2020-12-29 04:28:59,405 : using time: 12.8152 min
+2020-12-29 04:28:59,405 : **** Epoch:57/300
+2020-12-29 04:40:35,861 :  *  train_loss / train_pose_loss / train_pixel_loss:0.8312 / 0.2985 / 1.0654
+2020-12-29 04:41:45,931 :  *  test_loss / test_pose_loss / test_pixel_loss: 2.1037 / 0.2985 / 3.6105
+2020-12-29 04:41:45,932 : current best epoch : 54
+2020-12-29 04:41:45,933 : learning_rate = [0.001, 0.001]
+2020-12-29 04:41:45,933 : using time: 12.7755 min
+2020-12-29 04:41:45,933 : **** Epoch:58/300
+2020-12-29 04:53:13,498 :  *  train_loss / train_pose_loss / train_pixel_loss:0.8208 / 0.301 / 1.0395
+2020-12-29 04:54:23,212 :  *  test_loss / test_pose_loss / test_pixel_loss: 1.9725 / 0.3439 / 3.2572
+2020-12-29 04:54:27,273 : current best epoch : 58
+2020-12-29 04:54:27,274 : learning_rate = [0.001, 0.001]
+2020-12-29 04:54:27,274 : using time: 12.689 min
+2020-12-29 04:54:27,274 : **** Epoch:59/300
+2020-12-29 05:06:15,146 :  *  train_loss / train_pose_loss / train_pixel_loss:0.841 / 0.2915 / 1.099
+2020-12-29 05:07:28,022 :  *  test_loss / test_pose_loss / test_pixel_loss: 3.4862 / 0.3337 / 6.305
+2020-12-29 05:07:28,024 : current best epoch : 58
+2020-12-29 05:07:28,025 : learning_rate = [0.001, 0.001]
+2020-12-29 05:07:28,025 : using time: 13.0125 min
+2020-12-29 05:07:28,025 : **** Epoch:60/300
+2020-12-29 05:18:59,902 :  *  train_loss / train_pose_loss / train_pixel_loss:0.8143 / 0.2853 / 1.0581
+2020-12-29 05:20:12,983 :  *  test_loss / test_pose_loss / test_pixel_loss: 2.5717 / 0.4411 / 4.2612
+2020-12-29 05:20:12,985 : current best epoch : 58
+2020-12-29 05:20:12,985 : learning_rate = [0.001, 0.001]
+2020-12-29 05:20:12,985 : using time: 12.7493 min
+2020-12-29 05:20:12,985 : **** Epoch:61/300
+2020-12-29 05:31:52,199 :  *  train_loss / train_pose_loss / train_pixel_loss:0.825 / 0.2955 / 1.0591
+2020-12-29 05:33:01,516 :  *  test_loss / test_pose_loss / test_pixel_loss: 2.7119 / 0.2913 / 4.8412
+2020-12-29 05:33:01,517 : current best epoch : 58
+2020-12-29 05:33:01,517 : learning_rate = [0.001, 0.001]
+2020-12-29 05:33:01,517 : using time: 12.8089 min
+2020-12-29 05:33:01,517 : **** Epoch:62/300
+2020-12-29 05:44:43,451 :  *  train_loss / train_pose_loss / train_pixel_loss:0.8283 / 0.2967 / 1.0632
+2020-12-29 05:45:52,491 :  *  test_loss / test_pose_loss / test_pixel_loss: 2.6501 / 0.2654 / 4.7696
+2020-12-29 05:45:52,493 : current best epoch : 58
+2020-12-29 05:45:52,493 : learning_rate = [0.001, 0.001]
+2020-12-29 05:45:52,493 : using time: 12.8496 min
+2020-12-29 05:45:52,493 : **** Epoch:63/300
+2020-12-29 05:57:30,461 :  *  train_loss / train_pose_loss / train_pixel_loss:0.7922 / 0.2844 / 1.0157
+2020-12-29 05:58:41,219 :  *  test_loss / test_pose_loss / test_pixel_loss: 2.4196 / 0.2049 / 4.4292
+2020-12-29 05:58:41,221 : current best epoch : 58
+2020-12-29 05:58:41,221 : learning_rate = [0.001, 0.001]
+2020-12-29 05:58:41,221 : using time: 12.8121 min
+2020-12-29 05:58:41,221 : **** Epoch:64/300
+2020-12-29 06:10:15,822 :  *  train_loss / train_pose_loss / train_pixel_loss:0.7879 / 0.2653 / 1.0452
+2020-12-29 06:11:26,029 :  *  test_loss / test_pose_loss / test_pixel_loss: 2.1925 / 0.2587 / 3.8676
+2020-12-29 06:11:26,030 : current best epoch : 58
+2020-12-29 06:11:26,030 : learning_rate = [0.001, 0.001]
+2020-12-29 06:11:26,030 : using time: 12.7468 min
+2020-12-29 06:11:26,030 : **** Epoch:65/300
+2020-12-29 06:23:00,679 :  *  train_loss / train_pose_loss / train_pixel_loss:0.846 / 0.2889 / 1.1141
+2020-12-29 06:24:12,052 :  *  test_loss / test_pose_loss / test_pixel_loss: 2.9071 / 0.2743 / 5.2656
+2020-12-29 06:24:12,053 : current best epoch : 58
+2020-12-29 06:24:12,053 : learning_rate = [0.001, 0.001]
+2020-12-29 06:24:12,054 : using time: 12.7671 min
+2020-12-29 06:24:12,054 : **** Epoch:66/300
+2020-12-29 06:35:51,713 :  *  train_loss / train_pose_loss / train_pixel_loss:0.8171 / 0.2743 / 1.0856
+2020-12-29 06:37:04,595 :  *  test_loss / test_pose_loss / test_pixel_loss: 2.4316 / 0.2685 / 4.3261
+2020-12-29 06:37:04,597 : current best epoch : 58
+2020-12-29 06:37:04,597 : learning_rate = [0.001, 0.001]
+2020-12-29 06:37:04,598 : using time: 12.8757 min
+2020-12-29 06:37:04,598 : **** Epoch:67/300
+2020-12-29 06:48:45,364 :  *  train_loss / train_pose_loss / train_pixel_loss:0.7641 / 0.2692 / 0.9897
+2020-12-29 06:49:56,616 :  *  test_loss / test_pose_loss / test_pixel_loss: 2.6214 / 0.3409 / 4.5609
+2020-12-29 06:49:56,618 : current best epoch : 58
+2020-12-29 06:49:56,618 : learning_rate = [0.001, 0.001]
+2020-12-29 06:49:56,619 : using time: 12.867 min
+2020-12-29 06:49:56,619 : **** Epoch:68/300
+2020-12-29 07:01:36,183 :  *  train_loss / train_pose_loss / train_pixel_loss:0.7691 / 0.268 / 1.0022
+2020-12-29 07:02:48,093 :  *  test_loss / test_pose_loss / test_pixel_loss: 3.0798 / 0.2514 / 5.6567
+2020-12-29 07:02:48,095 : current best epoch : 58
+2020-12-29 07:02:48,095 : learning_rate = [0.001, 0.001]
+2020-12-29 07:02:48,095 : using time: 12.8579 min
+2020-12-29 07:02:48,095 : **** Epoch:69/300
+2020-12-29 07:14:26,692 :  *  train_loss / train_pose_loss / train_pixel_loss:0.7912 / 0.282 / 1.0182
+2020-12-29 07:15:39,133 :  *  test_loss / test_pose_loss / test_pixel_loss: 2.0527 / 0.1997 / 3.7059
+2020-12-29 07:15:39,135 : current best epoch : 58
+2020-12-29 07:15:39,135 : learning_rate = [0.001, 0.001]
+2020-12-29 07:15:39,135 : using time: 12.8507 min
+2020-12-29 07:15:39,135 : **** Epoch:70/300
+2020-12-29 07:27:19,720 :  *  train_loss / train_pose_loss / train_pixel_loss:0.7521 / 0.2692 / 0.9657
+2020-12-29 07:28:31,195 :  *  test_loss / test_pose_loss / test_pixel_loss: 2.2983 / 0.2361 / 4.1245
+2020-12-29 07:28:31,197 : current best epoch : 58
+2020-12-29 07:28:31,197 : learning_rate = [0.001, 0.001]
+2020-12-29 07:28:31,197 : using time: 12.8677 min
+2020-12-29 07:28:31,197 : **** Epoch:71/300
+2020-12-29 07:40:11,289 :  *  train_loss / train_pose_loss / train_pixel_loss:0.791 / 0.2711 / 1.0397
+2020-12-29 07:41:25,236 :  *  test_loss / test_pose_loss / test_pixel_loss: 2.2764 / 0.3129 / 3.9271
+2020-12-29 07:41:25,237 : current best epoch : 58
+2020-12-29 07:41:25,238 : learning_rate = [0.001, 0.001]
+2020-12-29 07:41:25,238 : using time: 12.9007 min
+2020-12-29 07:41:25,238 : **** Epoch:72/300
+2020-12-29 07:53:09,192 :  *  train_loss / train_pose_loss / train_pixel_loss:0.7758 / 0.2789 / 0.9937
+2020-12-29 07:54:19,450 :  *  test_loss / test_pose_loss / test_pixel_loss: 2.7255 / 0.2558 / 4.9395
+2020-12-29 07:54:19,452 : current best epoch : 58
+2020-12-29 07:54:19,452 : learning_rate = [0.001, 0.001]
+2020-12-29 07:54:19,452 : using time: 12.9036 min
+2020-12-29 07:54:19,452 : **** Epoch:73/300
+2020-12-29 08:05:57,367 :  *  train_loss / train_pose_loss / train_pixel_loss:0.7419 / 0.2621 / 0.9595
+2020-12-29 08:07:07,354 :  *  test_loss / test_pose_loss / test_pixel_loss: 2.8577 / 0.2399 / 5.2356
+2020-12-29 08:07:07,355 : current best epoch : 58
+2020-12-29 08:07:07,356 : learning_rate = [0.001, 0.001]
+2020-12-29 08:07:07,356 : using time: 12.7984 min
+2020-12-29 08:07:07,356 : **** Epoch:74/300
+2020-12-29 08:18:46,243 :  *  train_loss / train_pose_loss / train_pixel_loss:0.7629 / 0.2682 / 0.9894
+2020-12-29 08:20:01,168 :  *  test_loss / test_pose_loss / test_pixel_loss: 2.9523 / 0.2905 / 5.3237
+2020-12-29 08:20:01,170 : current best epoch : 58
+2020-12-29 08:20:01,171 : learning_rate = [0.001, 0.001]
+2020-12-29 08:20:01,171 : using time: 12.8969 min
+2020-12-29 08:20:01,171 : **** Epoch:75/300
+2020-12-29 08:31:48,276 :  *  train_loss / train_pose_loss / train_pixel_loss:0.7341 / 0.2676 / 0.933
+2020-12-29 08:33:02,137 :  *  test_loss / test_pose_loss / test_pixel_loss: 1.8078 / 0.2738 / 3.068
+2020-12-29 08:33:06,285 : current best epoch : 75
+2020-12-29 08:33:06,285 : learning_rate = [0.001, 0.001]
+2020-12-29 08:33:06,285 : using time: 13.0852 min
+2020-12-29 08:33:06,285 : **** Epoch:76/300
+2020-12-29 08:44:44,650 :  *  train_loss / train_pose_loss / train_pixel_loss:0.7589 / 0.2728 / 0.9722
+2020-12-29 08:45:55,712 :  *  test_loss / test_pose_loss / test_pixel_loss: 2.0134 / 0.2234 / 3.5801
+2020-12-29 08:45:55,713 : current best epoch : 75
+2020-12-29 08:45:55,714 : learning_rate = [0.001, 0.001]
+2020-12-29 08:45:55,714 : using time: 12.8238 min
+2020-12-29 08:45:55,714 : **** Epoch:77/300
+2020-12-29 08:57:37,962 :  *  train_loss / train_pose_loss / train_pixel_loss:0.7528 / 0.2672 / 0.9711
+2020-12-29 08:58:47,388 :  *  test_loss / test_pose_loss / test_pixel_loss: 2.5386 / 0.2925 / 4.4922
+2020-12-29 08:58:47,389 : current best epoch : 75
+2020-12-29 08:58:47,389 : learning_rate = [0.001, 0.001]
+2020-12-29 08:58:47,389 : using time: 12.8613 min
+2020-12-29 08:58:47,389 : **** Epoch:78/300
+2020-12-29 09:10:23,799 :  *  train_loss / train_pose_loss / train_pixel_loss:0.7533 / 0.2678 / 0.9711
+2020-12-29 09:11:35,441 :  *  test_loss / test_pose_loss / test_pixel_loss: 2.8949 / 0.372 / 5.0458
+2020-12-29 09:11:35,443 : current best epoch : 75
+2020-12-29 09:11:35,443 : learning_rate = [0.001, 0.001]
+2020-12-29 09:11:35,443 : using time: 12.8009 min
+2020-12-29 09:11:35,443 : **** Epoch:79/300
+2020-12-29 09:23:10,418 :  *  train_loss / train_pose_loss / train_pixel_loss:0.755 / 0.2567 / 0.9967
+2020-12-29 09:24:19,440 :  *  test_loss / test_pose_loss / test_pixel_loss: 2.0936 / 0.2147 / 3.7578
+2020-12-29 09:24:19,441 : current best epoch : 75
+2020-12-29 09:24:19,441 : learning_rate = [0.001, 0.001]
+2020-12-29 09:24:19,441 : using time: 12.7333 min
+2020-12-29 09:24:19,442 : **** Epoch:80/300
+2020-12-29 09:36:01,848 :  *  train_loss / train_pose_loss / train_pixel_loss:0.7534 / 0.2628 / 0.9812
+2020-12-29 09:37:11,421 :  *  test_loss / test_pose_loss / test_pixel_loss: 2.435 / 0.2525 / 4.3649
+2020-12-29 09:37:11,423 : current best epoch : 75
+2020-12-29 09:37:11,423 : learning_rate = [0.001, 0.001]
+2020-12-29 09:37:11,423 : using time: 12.8664 min
+2020-12-29 09:37:11,423 : **** Epoch:81/300
+2020-12-29 09:48:48,784 :  *  train_loss / train_pose_loss / train_pixel_loss:0.7347 / 0.2476 / 0.9742
+2020-12-29 09:49:59,851 :  *  test_loss / test_pose_loss / test_pixel_loss: 1.894 / 0.2259 / 3.3362
+2020-12-29 09:49:59,853 : current best epoch : 75
+2020-12-29 09:49:59,853 : learning_rate = [0.001, 0.001]
+2020-12-29 09:49:59,854 : using time: 12.8072 min
+2020-12-29 09:49:59,854 : **** Epoch:82/300
+2020-12-29 10:01:43,255 :  *  train_loss / train_pose_loss / train_pixel_loss:0.716 / 0.25 / 0.932
+2020-12-29 10:02:55,314 :  *  test_loss / test_pose_loss / test_pixel_loss: 2.8729 / 0.2578 / 5.23
+2020-12-29 10:02:55,316 : current best epoch : 75
+2020-12-29 10:02:55,317 : learning_rate = [0.001, 0.001]
+2020-12-29 10:02:55,317 : using time: 12.9244 min
+2020-12-29 10:02:55,317 : **** Epoch:83/300
+2020-12-29 10:14:30,494 :  *  train_loss / train_pose_loss / train_pixel_loss:0.7288 / 0.2549 / 0.9477
+2020-12-29 10:15:40,965 :  *  test_loss / test_pose_loss / test_pixel_loss: 2.0559 / 0.3121 / 3.4877
+2020-12-29 10:15:40,967 : current best epoch : 75
+2020-12-29 10:15:40,967 : learning_rate = [0.001, 0.001]
+2020-12-29 10:15:40,967 : using time: 12.7608 min
+2020-12-29 10:15:40,967 : **** Epoch:84/300
+2020-12-29 10:27:16,148 :  *  train_loss / train_pose_loss / train_pixel_loss:0.7209 / 0.2566 / 0.9285
+2020-12-29 10:28:25,884 :  *  test_loss / test_pose_loss / test_pixel_loss: 1.2472 / 0.224 / 2.0466
+2020-12-29 10:28:30,090 : current best epoch : 84
+2020-12-29 10:28:30,091 : learning_rate = [0.001, 0.001]
+2020-12-29 10:28:30,091 : using time: 12.8187 min
+2020-12-29 10:28:30,091 : **** Epoch:85/300
+2020-12-29 10:40:15,614 :  *  train_loss / train_pose_loss / train_pixel_loss:0.6819 / 0.2452 / 0.8733
+2020-12-29 10:41:25,990 :  *  test_loss / test_pose_loss / test_pixel_loss: 1.9956 / 0.2294 / 3.5325
+2020-12-29 10:41:25,992 : current best epoch : 84
+2020-12-29 10:41:25,992 : learning_rate = [0.001, 0.001]
+2020-12-29 10:41:25,993 : using time: 12.9317 min
+2020-12-29 10:41:25,993 : **** Epoch:86/300
+2020-12-29 10:53:02,911 :  *  train_loss / train_pose_loss / train_pixel_loss:0.7206 / 0.2554 / 0.9304
+2020-12-29 10:54:11,949 :  *  test_loss / test_pose_loss / test_pixel_loss: 2.2466 / 0.2634 / 3.9665
+2020-12-29 10:54:11,951 : current best epoch : 84
+2020-12-29 10:54:11,952 : learning_rate = [0.001, 0.001]
+2020-12-29 10:54:11,952 : using time: 12.766 min
+2020-12-29 10:54:11,952 : **** Epoch:87/300
+2020-12-29 11:05:49,619 :  *  train_loss / train_pose_loss / train_pixel_loss:0.7196 / 0.2519 / 0.9354
+2020-12-29 11:06:59,858 :  *  test_loss / test_pose_loss / test_pixel_loss: 1.7815 / 0.225 / 3.113
+2020-12-29 11:06:59,859 : current best epoch : 84
+2020-12-29 11:06:59,860 : learning_rate = [0.001, 0.001]
+2020-12-29 11:06:59,860 : using time: 12.7985 min
+2020-12-29 11:06:59,860 : **** Epoch:88/300
+2020-12-29 11:18:37,353 :  *  train_loss / train_pose_loss / train_pixel_loss:0.7157 / 0.2469 / 0.9375
+2020-12-29 11:19:47,043 :  *  test_loss / test_pose_loss / test_pixel_loss: 2.3563 / 0.2228 / 4.2671
+2020-12-29 11:19:47,044 : current best epoch : 84
+2020-12-29 11:19:47,044 : learning_rate = [0.001, 0.001]
+2020-12-29 11:19:47,044 : using time: 12.7864 min
+2020-12-29 11:19:47,045 : **** Epoch:89/300
+2020-12-29 11:31:16,214 :  *  train_loss / train_pose_loss / train_pixel_loss:0.711 / 0.2549 / 0.9122
+2020-12-29 11:32:29,247 :  *  test_loss / test_pose_loss / test_pixel_loss: 1.8286 / 0.2114 / 3.2343
+2020-12-29 11:32:29,248 : current best epoch : 84
+2020-12-29 11:32:29,249 : learning_rate = [0.001, 0.001]
+2020-12-29 11:32:29,249 : using time: 12.7034 min
+2020-12-29 11:32:29,249 : **** Epoch:90/300
+2020-12-29 11:44:09,515 :  *  train_loss / train_pose_loss / train_pixel_loss:0.7209 / 0.2586 / 0.9246
+2020-12-29 11:45:21,012 :  *  test_loss / test_pose_loss / test_pixel_loss: 1.5223 / 0.2404 / 2.5638
+2020-12-29 11:45:21,014 : current best epoch : 84
+2020-12-29 11:45:21,014 : learning_rate = [0.001, 0.001]
+2020-12-29 11:45:21,014 : using time: 12.8628 min
+2020-12-29 11:45:21,014 : **** Epoch:91/300
+2020-12-29 11:56:54,097 :  *  train_loss / train_pose_loss / train_pixel_loss:0.6854 / 0.243 / 0.8849
+2020-12-29 11:58:04,766 :  *  test_loss / test_pose_loss / test_pixel_loss: 2.4589 / 0.2642 / 4.3895
+2020-12-29 11:58:04,768 : current best epoch : 84
+2020-12-29 11:58:04,769 : learning_rate = [0.001, 0.001]
+2020-12-29 11:58:04,769 : using time: 12.7292 min
+2020-12-29 11:58:04,769 : **** Epoch:92/300
+2020-12-29 12:09:42,299 :  *  train_loss / train_pose_loss / train_pixel_loss:0.7037 / 0.2379 / 0.9317
+2020-12-29 12:10:52,691 :  *  test_loss / test_pose_loss / test_pixel_loss: 1.5962 / 0.2008 / 2.7908
+2020-12-29 12:10:52,693 : current best epoch : 84
+2020-12-29 12:10:52,694 : learning_rate = [0.001, 0.001]
+2020-12-29 12:10:52,694 : using time: 12.7987 min
+2020-12-29 12:10:52,694 : **** Epoch:93/300
+2020-12-29 12:22:34,911 :  *  train_loss / train_pose_loss / train_pixel_loss:0.7269 / 0.2578 / 0.9383
+2020-12-29 12:23:46,245 :  *  test_loss / test_pose_loss / test_pixel_loss: 2.0797 / 0.2297 / 3.7
+2020-12-29 12:23:46,246 : current best epoch : 84
+2020-12-29 12:23:46,247 : learning_rate = [0.001, 0.001]
+2020-12-29 12:23:46,247 : using time: 12.8925 min
+2020-12-29 12:23:46,247 : **** Epoch:94/300
+2020-12-29 12:35:30,262 :  *  train_loss / train_pose_loss / train_pixel_loss:0.6876 / 0.2414 / 0.8924
+2020-12-29 12:36:41,098 :  *  test_loss / test_pose_loss / test_pixel_loss: 0.9145 / 0.1822 / 1.4645
+2020-12-29 12:36:45,184 : current best epoch : 94
+2020-12-29 12:36:45,185 : learning_rate = [0.001, 0.001]
+2020-12-29 12:36:45,185 : using time: 12.9823 min
+2020-12-29 12:36:45,185 : **** Epoch:95/300
+2020-12-29 12:48:19,127 :  *  train_loss / train_pose_loss / train_pixel_loss:0.7031 / 0.2488 / 0.9085
+2020-12-29 12:49:29,924 :  *  test_loss / test_pose_loss / test_pixel_loss: 1.8951 / 0.2196 / 3.351
+2020-12-29 12:49:29,926 : current best epoch : 94
+2020-12-29 12:49:29,926 : learning_rate = [0.001, 0.001]
+2020-12-29 12:49:29,926 : using time: 12.7457 min
+2020-12-29 12:49:29,926 : **** Epoch:96/300
+2020-12-29 13:01:08,293 :  *  train_loss / train_pose_loss / train_pixel_loss:0.6784 / 0.2446 / 0.8675
+2020-12-29 13:02:17,560 :  *  test_loss / test_pose_loss / test_pixel_loss: 1.8181 / 0.2015 / 3.2332
+2020-12-29 13:02:17,561 : current best epoch : 94
+2020-12-29 13:02:17,562 : learning_rate = [0.001, 0.001]
+2020-12-29 13:02:17,562 : using time: 12.7939 min
+2020-12-29 13:02:17,562 : **** Epoch:97/300
+2020-12-29 13:14:03,012 :  *  train_loss / train_pose_loss / train_pixel_loss:0.7063 / 0.2426 / 0.9274
+2020-12-29 13:15:14,357 :  *  test_loss / test_pose_loss / test_pixel_loss: 1.5462 / 0.2074 / 2.6775
+2020-12-29 13:15:14,358 : current best epoch : 94
+2020-12-29 13:15:14,359 : learning_rate = [0.001, 0.001]
+2020-12-29 13:15:14,359 : using time: 12.9466 min
+2020-12-29 13:15:14,359 : **** Epoch:98/300
+2020-12-29 13:27:02,809 :  *  train_loss / train_pose_loss / train_pixel_loss:0.6907 / 0.2459 / 0.8896
+2020-12-29 13:28:13,974 :  *  test_loss / test_pose_loss / test_pixel_loss: 2.4273 / 0.2128 / 4.429
+2020-12-29 13:28:13,976 : current best epoch : 94
+2020-12-29 13:28:13,976 : learning_rate = [0.001, 0.001]
+2020-12-29 13:28:13,976 : using time: 12.9936 min
+2020-12-29 13:28:13,976 : **** Epoch:99/300
+2020-12-29 13:40:10,736 :  *  train_loss / train_pose_loss / train_pixel_loss:0.7111 / 0.2507 / 0.9208
+2020-12-29 13:41:22,969 :  *  test_loss / test_pose_loss / test_pixel_loss: 2.2656 / 0.196 / 4.1391
+2020-12-29 13:41:22,971 : current best epoch : 94
+2020-12-29 13:41:22,971 : learning_rate = [0.001, 0.001]
+2020-12-29 13:41:22,972 : using time: 13.1499 min
+2020-12-29 13:41:22,972 : **** Epoch:100/300
+2020-12-29 13:52:59,245 :  *  train_loss / train_pose_loss / train_pixel_loss:0.71 / 0.2499 / 0.9202
+2020-12-29 13:54:10,839 :  *  test_loss / test_pose_loss / test_pixel_loss: 1.7607 / 0.2066 / 3.1084
+2020-12-29 13:54:10,840 : current best epoch : 94
+2020-12-29 13:54:10,840 : learning_rate = [0.0005, 0.0005]
+2020-12-29 13:54:10,840 : using time: 12.7978 min
+2020-12-29 13:54:10,840 : **** Epoch:101/300
+2020-12-29 14:05:45,827 :  *  train_loss / train_pose_loss / train_pixel_loss:0.6033 / 0.2083 / 0.7901
+2020-12-29 14:06:57,877 :  *  test_loss / test_pose_loss / test_pixel_loss: 1.133 / 0.2261 / 1.8139
+2020-12-29 14:06:57,879 : current best epoch : 94
+2020-12-29 14:06:57,880 : learning_rate = [0.0005, 0.0005]
+2020-12-29 14:06:57,880 : using time: 12.784 min
+2020-12-29 14:06:57,880 : **** Epoch:102/300
+2020-12-29 14:18:40,314 :  *  train_loss / train_pose_loss / train_pixel_loss:0.5943 / 0.2069 / 0.7748
+2020-12-29 14:19:53,119 :  *  test_loss / test_pose_loss / test_pixel_loss: 1.4863 / 0.1909 / 2.5909
+2020-12-29 14:19:53,120 : current best epoch : 94
+2020-12-29 14:19:53,121 : learning_rate = [0.0005, 0.0005]
+2020-12-29 14:19:53,121 : using time: 12.9207 min
+2020-12-29 14:19:53,121 : **** Epoch:103/300
+2020-12-29 14:31:37,634 :  *  train_loss / train_pose_loss / train_pixel_loss:0.5855 / 0.2069 / 0.7571
+2020-12-29 14:32:48,550 :  *  test_loss / test_pose_loss / test_pixel_loss: 1.6019 / 0.1992 / 2.8054
+2020-12-29 14:32:48,551 : current best epoch : 94
+2020-12-29 14:32:48,551 : learning_rate = [0.0005, 0.0005]
+2020-12-29 14:32:48,552 : using time: 12.9238 min
+2020-12-29 14:32:48,552 : **** Epoch:104/300
+2020-12-29 14:44:26,436 :  *  train_loss / train_pose_loss / train_pixel_loss:0.5888 / 0.2096 / 0.7584
+2020-12-29 14:45:39,265 :  *  test_loss / test_pose_loss / test_pixel_loss: 2.0533 / 0.1761 / 3.7542
+2020-12-29 14:45:39,267 : current best epoch : 94
+2020-12-29 14:45:39,268 : learning_rate = [0.0005, 0.0005]
+2020-12-29 14:45:39,268 : using time: 12.8453 min
+2020-12-29 14:45:39,268 : **** Epoch:105/300
+2020-12-29 14:57:20,734 :  *  train_loss / train_pose_loss / train_pixel_loss:0.6004 / 0.2103 / 0.7802
+2020-12-29 14:58:31,718 :  *  test_loss / test_pose_loss / test_pixel_loss: 1.7233 / 0.1887 / 3.0693
+2020-12-29 14:58:31,720 : current best epoch : 94
+2020-12-29 14:58:31,720 : learning_rate = [0.0005, 0.0005]
+2020-12-29 14:58:31,720 : using time: 12.8742 min
+2020-12-29 14:58:31,720 : **** Epoch:106/300
+2020-12-29 15:10:16,424 :  *  train_loss / train_pose_loss / train_pixel_loss:0.5797 / 0.2044 / 0.7505
+2020-12-29 15:11:26,880 :  *  test_loss / test_pose_loss / test_pixel_loss: 1.0261 / 0.1699 / 1.7126
+2020-12-29 15:11:26,881 : current best epoch : 94
+2020-12-29 15:11:26,882 : learning_rate = [0.0005, 0.0005]
+2020-12-29 15:11:26,882 : using time: 12.9194 min
+2020-12-29 15:11:26,882 : **** Epoch:107/300
+2020-12-29 15:23:12,224 :  *  train_loss / train_pose_loss / train_pixel_loss:0.5691 / 0.2006 / 0.7371
+2020-12-29 15:24:23,130 :  *  test_loss / test_pose_loss / test_pixel_loss: 1.9486 / 0.252 / 3.3933
+2020-12-29 15:24:23,131 : current best epoch : 94
+2020-12-29 15:24:23,132 : learning_rate = [0.0005, 0.0005]
+2020-12-29 15:24:23,132 : using time: 12.9375 min
+2020-12-29 15:24:23,132 : **** Epoch:108/300
+2020-12-29 15:36:06,243 :  *  train_loss / train_pose_loss / train_pixel_loss:0.5736 / 0.2064 / 0.7345
+2020-12-29 15:37:17,699 :  *  test_loss / test_pose_loss / test_pixel_loss: 1.3544 / 0.1981 / 2.3127
+2020-12-29 15:37:17,700 : current best epoch : 94
+2020-12-29 15:37:17,701 : learning_rate = [0.0005, 0.0005]
+2020-12-29 15:37:17,701 : using time: 12.9095 min
+2020-12-29 15:37:17,701 : **** Epoch:109/300
+2020-12-29 15:48:59,392 :  *  train_loss / train_pose_loss / train_pixel_loss:0.5797 / 0.2011 / 0.7573
+2020-12-29 15:50:08,841 :  *  test_loss / test_pose_loss / test_pixel_loss: 1.0988 / 0.1847 / 1.8282
+2020-12-29 15:50:08,843 : current best epoch : 94
+2020-12-29 15:50:08,843 : learning_rate = [0.0005, 0.0005]
+2020-12-29 15:50:08,843 : using time: 12.8524 min
+2020-12-29 15:50:08,843 : **** Epoch:110/300
+2020-12-29 16:01:56,987 :  *  train_loss / train_pose_loss / train_pixel_loss:0.5969 / 0.2036 / 0.7864
+2020-12-29 16:03:08,449 :  *  test_loss / test_pose_loss / test_pixel_loss: 1.284 / 0.171 / 2.226
+2020-12-29 16:03:08,451 : current best epoch : 94
+2020-12-29 16:03:08,451 : learning_rate = [0.0005, 0.0005]
+2020-12-29 16:03:08,452 : using time: 12.9935 min
+2020-12-29 16:03:08,452 : **** Epoch:111/300
+2020-12-29 16:14:57,892 :  *  train_loss / train_pose_loss / train_pixel_loss:0.5661 / 0.2041 / 0.7239
+2020-12-29 16:16:06,192 :  *  test_loss / test_pose_loss / test_pixel_loss: 1.3782 / 0.1723 / 2.4116
+2020-12-29 16:16:06,194 : current best epoch : 94
+2020-12-29 16:16:06,194 : learning_rate = [0.0005, 0.0005]
+2020-12-29 16:16:06,194 : using time: 12.9624 min
+2020-12-29 16:16:06,194 : **** Epoch:112/300
+2020-12-29 16:27:57,392 :  *  train_loss / train_pose_loss / train_pixel_loss:0.5905 / 0.202 / 0.777
+2020-12-29 16:29:07,507 :  *  test_loss / test_pose_loss / test_pixel_loss: 1.1035 / 0.1885 / 1.8299
+2020-12-29 16:29:07,508 : current best epoch : 94
+2020-12-29 16:29:07,508 : learning_rate = [0.0005, 0.0005]
+2020-12-29 16:29:07,508 : using time: 13.0219 min
+2020-12-29 16:29:07,508 : **** Epoch:113/300
+2020-12-29 16:41:00,709 :  *  train_loss / train_pose_loss / train_pixel_loss:0.591 / 0.2066 / 0.7688
+2020-12-29 16:42:10,172 :  *  test_loss / test_pose_loss / test_pixel_loss: 1.8881 / 0.1912 / 3.3939
+2020-12-29 16:42:10,174 : current best epoch : 94
+2020-12-29 16:42:10,175 : learning_rate = [0.0005, 0.0005]
+2020-12-29 16:42:10,175 : using time: 13.0444 min
+2020-12-29 16:42:10,175 : **** Epoch:114/300
+2020-12-29 16:53:53,957 :  *  train_loss / train_pose_loss / train_pixel_loss:0.5844 / 0.2063 / 0.7561
+2020-12-29 16:55:05,819 :  *  test_loss / test_pose_loss / test_pixel_loss: 1.3468 / 0.1807 / 2.3322
+2020-12-29 16:55:05,821 : current best epoch : 94
+2020-12-29 16:55:05,821 : learning_rate = [0.0005, 0.0005]
+2020-12-29 16:55:05,821 : using time: 12.9274 min
+2020-12-29 16:55:05,821 : **** Epoch:115/300
+2020-12-29 17:06:48,927 :  *  train_loss / train_pose_loss / train_pixel_loss:0.5779 / 0.2006 / 0.7545
+2020-12-29 17:07:58,069 :  *  test_loss / test_pose_loss / test_pixel_loss: 1.0221 / 0.1923 / 1.6595
+2020-12-29 17:07:58,071 : current best epoch : 94
+2020-12-29 17:07:58,071 : learning_rate = [0.0005, 0.0005]
+2020-12-29 17:07:58,071 : using time: 12.8708 min
+2020-12-29 17:07:58,071 : **** Epoch:116/300
+2020-12-29 17:19:46,111 :  *  train_loss / train_pose_loss / train_pixel_loss:0.5848 / 0.2097 / 0.7503
+2020-12-29 17:20:58,315 :  *  test_loss / test_pose_loss / test_pixel_loss: 0.9869 / 0.1964 / 1.5811
+2020-12-29 17:20:58,317 : current best epoch : 94
+2020-12-29 17:20:58,317 : learning_rate = [0.0005, 0.0005]
+2020-12-29 17:20:58,317 : using time: 13.0041 min
+2020-12-29 17:20:58,317 : **** Epoch:117/300
+2020-12-29 17:32:41,844 :  *  train_loss / train_pose_loss / train_pixel_loss:0.5796 / 0.2066 / 0.7461
+2020-12-29 17:33:52,248 :  *  test_loss / test_pose_loss / test_pixel_loss: 1.3036 / 0.1829 / 2.2413
+2020-12-29 17:33:52,250 : current best epoch : 94
+2020-12-29 17:33:52,250 : learning_rate = [0.0005, 0.0005]
+2020-12-29 17:33:52,250 : using time: 12.8989 min
+2020-12-29 17:33:52,250 : **** Epoch:118/300
+2020-12-29 17:45:42,670 :  *  train_loss / train_pose_loss / train_pixel_loss:0.5712 / 0.2049 / 0.7326
+2020-12-29 17:46:54,475 :  *  test_loss / test_pose_loss / test_pixel_loss: 1.4966 / 0.2086 / 2.576
+2020-12-29 17:46:54,476 : current best epoch : 94
+2020-12-29 17:46:54,476 : learning_rate = [0.0005, 0.0005]
+2020-12-29 17:46:54,477 : using time: 13.0371 min
+2020-12-29 17:46:54,477 : **** Epoch:119/300
+2020-12-29 17:58:39,875 :  *  train_loss / train_pose_loss / train_pixel_loss:0.5714 / 0.2038 / 0.7352
+2020-12-29 17:59:49,498 :  *  test_loss / test_pose_loss / test_pixel_loss: 1.3041 / 0.1761 / 2.256
+2020-12-29 17:59:49,500 : current best epoch : 94
+2020-12-29 17:59:49,500 : learning_rate = [0.0005, 0.0005]
+2020-12-29 17:59:49,500 : using time: 12.9171 min
+2020-12-29 17:59:49,500 : **** Epoch:120/300
+2020-12-29 18:11:35,330 :  *  train_loss / train_pose_loss / train_pixel_loss:0.5793 / 0.2014 / 0.7558
+2020-12-29 18:12:45,236 :  *  test_loss / test_pose_loss / test_pixel_loss: 1.9799 / 0.1937 / 3.5725
+2020-12-29 18:12:45,239 : current best epoch : 94
+2020-12-29 18:12:45,239 : learning_rate = [0.0005, 0.0005]
+2020-12-29 18:12:45,239 : using time: 12.929 min
+2020-12-29 18:12:45,239 : **** Epoch:121/300
+2020-12-29 18:24:30,093 :  *  train_loss / train_pose_loss / train_pixel_loss:0.5749 / 0.2034 / 0.7429
+2020-12-29 18:25:42,025 :  *  test_loss / test_pose_loss / test_pixel_loss: 1.296 / 0.1635 / 2.2649
+2020-12-29 18:25:42,026 : current best epoch : 94
+2020-12-29 18:25:42,027 : learning_rate = [0.0005, 0.0005]
+2020-12-29 18:25:42,027 : using time: 12.9465 min
+2020-12-29 18:25:42,027 : **** Epoch:122/300
+2020-12-29 18:37:21,768 :  *  train_loss / train_pose_loss / train_pixel_loss:0.5733 / 0.2052 / 0.7362
+2020-12-29 18:38:34,189 :  *  test_loss / test_pose_loss / test_pixel_loss: 1.3856 / 0.2029 / 2.3653
+2020-12-29 18:38:34,190 : current best epoch : 94
+2020-12-29 18:38:34,190 : learning_rate = [0.0005, 0.0005]
+2020-12-29 18:38:34,191 : using time: 12.8694 min
+2020-12-29 18:38:34,191 : **** Epoch:123/300
+2020-12-29 18:50:14,549 :  *  train_loss / train_pose_loss / train_pixel_loss:0.5601 / 0.1984 / 0.7233
+2020-12-29 18:51:26,426 :  *  test_loss / test_pose_loss / test_pixel_loss: 0.9221 / 0.2128 / 1.4187
+2020-12-29 18:51:26,427 : current best epoch : 94
+2020-12-29 18:51:26,427 : learning_rate = [0.0005, 0.0005]
+2020-12-29 18:51:26,427 : using time: 12.8706 min
+2020-12-29 18:51:26,427 : **** Epoch:124/300
+2020-12-29 19:03:17,043 :  *  train_loss / train_pose_loss / train_pixel_loss:0.5774 / 0.1976 / 0.7597
+2020-12-29 19:04:30,059 :  *  test_loss / test_pose_loss / test_pixel_loss: 1.0722 / 0.1717 / 1.801
+2020-12-29 19:04:30,061 : current best epoch : 94
+2020-12-29 19:04:30,061 : learning_rate = [0.0005, 0.0005]
+2020-12-29 19:04:30,062 : using time: 13.0606 min
+2020-12-29 19:04:30,062 : **** Epoch:125/300
+2020-12-29 19:16:18,315 :  *  train_loss / train_pose_loss / train_pixel_loss:0.5646 / 0.2049 / 0.7193
+2020-12-29 19:17:30,001 :  *  test_loss / test_pose_loss / test_pixel_loss: 1.317 / 0.1747 / 2.2847
+2020-12-29 19:17:30,002 : current best epoch : 94
+2020-12-29 19:17:30,003 : learning_rate = [0.0005, 0.0005]
+2020-12-29 19:17:30,003 : using time: 12.999 min
+2020-12-29 19:17:30,003 : **** Epoch:126/300
+2020-12-29 19:29:19,534 :  *  train_loss / train_pose_loss / train_pixel_loss:0.5638 / 0.1992 / 0.7291
+2020-12-29 19:30:31,569 :  *  test_loss / test_pose_loss / test_pixel_loss: 1.2016 / 0.2208 / 1.9617
+2020-12-29 19:30:31,572 : current best epoch : 94
+2020-12-29 19:30:31,572 : learning_rate = [0.0005, 0.0005]
+2020-12-29 19:30:31,572 : using time: 13.0262 min
+2020-12-29 19:30:31,572 : **** Epoch:127/300
+2020-12-29 19:42:10,955 :  *  train_loss / train_pose_loss / train_pixel_loss:0.5659 / 0.202 / 0.7277
+2020-12-29 19:43:25,036 :  *  test_loss / test_pose_loss / test_pixel_loss: 1.2326 / 0.1714 / 2.1223
+2020-12-29 19:43:25,037 : current best epoch : 94
+2020-12-29 19:43:25,037 : learning_rate = [0.0005, 0.0005]
+2020-12-29 19:43:25,037 : using time: 12.8911 min
+2020-12-29 19:43:25,037 : **** Epoch:128/300
+2020-12-29 19:55:10,051 :  *  train_loss / train_pose_loss / train_pixel_loss:0.5636 / 0.2 / 0.7273
+2020-12-29 19:56:21,610 :  *  test_loss / test_pose_loss / test_pixel_loss: 1.7045 / 0.215 / 2.9789
+2020-12-29 19:56:21,611 : current best epoch : 94
+2020-12-29 19:56:21,612 : learning_rate = [0.0005, 0.0005]
+2020-12-29 19:56:21,612 : using time: 12.9429 min
+2020-12-29 19:56:21,612 : **** Epoch:129/300
+2020-12-29 20:08:05,143 :  *  train_loss / train_pose_loss / train_pixel_loss:0.582 / 0.2023 / 0.7595
+2020-12-29 20:09:16,003 :  *  test_loss / test_pose_loss / test_pixel_loss: 1.2077 / 0.1707 / 2.074
+2020-12-29 20:09:16,004 : current best epoch : 94
+2020-12-29 20:09:16,005 : learning_rate = [0.0005, 0.0005]
+2020-12-29 20:09:16,005 : using time: 12.9065 min
+2020-12-29 20:09:16,005 : **** Epoch:130/300
+2020-12-29 20:21:06,859 :  *  train_loss / train_pose_loss / train_pixel_loss:0.5734 / 0.1928 / 0.7612
+2020-12-29 20:22:16,401 :  *  test_loss / test_pose_loss / test_pixel_loss: 1.3918 / 0.1911 / 2.4014
+2020-12-29 20:22:16,402 : current best epoch : 94
+2020-12-29 20:22:16,402 : learning_rate = [0.0005, 0.0005]
+2020-12-29 20:22:16,402 : using time: 13.0066 min
+2020-12-29 20:22:16,402 : **** Epoch:131/300
+2020-12-29 20:33:58,817 :  *  train_loss / train_pose_loss / train_pixel_loss:0.5709 / 0.1965 / 0.7487
+2020-12-29 20:35:10,383 :  *  test_loss / test_pose_loss / test_pixel_loss: 1.6954 / 0.2387 / 2.9134
+2020-12-29 20:35:10,385 : current best epoch : 94
+2020-12-29 20:35:10,385 : learning_rate = [0.0005, 0.0005]
+2020-12-29 20:35:10,385 : using time: 12.8997 min
+2020-12-29 20:35:10,385 : **** Epoch:132/300
+2020-12-29 20:47:02,238 :  *  train_loss / train_pose_loss / train_pixel_loss:0.5656 / 0.2021 / 0.7269
+2020-12-29 20:48:12,732 :  *  test_loss / test_pose_loss / test_pixel_loss: 1.5921 / 0.2901 / 2.6041
+2020-12-29 20:48:12,733 : current best epoch : 94
+2020-12-29 20:48:12,733 : learning_rate = [0.0005, 0.0005]
+2020-12-29 20:48:12,733 : using time: 13.0391 min
+2020-12-29 20:48:12,733 : **** Epoch:133/300
+2020-12-29 21:00:13,463 :  *  train_loss / train_pose_loss / train_pixel_loss:0.5632 / 0.1994 / 0.7275
+2020-12-29 21:01:24,220 :  *  test_loss / test_pose_loss / test_pixel_loss: 1.6036 / 0.1777 / 2.8519
+2020-12-29 21:01:24,222 : current best epoch : 94
+2020-12-29 21:01:24,222 : learning_rate = [0.0005, 0.0005]
+2020-12-29 21:01:24,222 : using time: 13.1915 min
+2020-12-29 21:01:24,222 : **** Epoch:134/300
+2020-12-29 21:13:14,560 :  *  train_loss / train_pose_loss / train_pixel_loss:0.5622 / 0.1969 / 0.7307
+2020-12-29 21:14:25,364 :  *  test_loss / test_pose_loss / test_pixel_loss: 1.7797 / 0.1818 / 3.1958
+2020-12-29 21:14:25,365 : current best epoch : 94
+2020-12-29 21:14:25,366 : learning_rate = [0.0005, 0.0005]
+2020-12-29 21:14:25,366 : using time: 13.0191 min
+2020-12-29 21:14:25,366 : **** Epoch:135/300
+2020-12-29 21:25:59,663 :  *  train_loss / train_pose_loss / train_pixel_loss:0.5706 / 0.1904 / 0.7604
+2020-12-29 21:27:10,891 :  *  test_loss / test_pose_loss / test_pixel_loss: 1.681 / 0.1805 / 3.001
+2020-12-29 21:27:10,893 : current best epoch : 94
+2020-12-29 21:27:10,893 : learning_rate = [0.0005, 0.0005]
+2020-12-29 21:27:10,893 : using time: 12.7588 min
+2020-12-29 21:27:10,893 : **** Epoch:136/300
+2020-12-29 21:39:02,812 :  *  train_loss / train_pose_loss / train_pixel_loss:0.5595 / 0.2 / 0.719
+2020-12-29 21:40:15,926 :  *  test_loss / test_pose_loss / test_pixel_loss: 1.7497 / 0.1899 / 3.1195
+2020-12-29 21:40:15,928 : current best epoch : 94
+2020-12-29 21:40:15,928 : learning_rate = [0.0005, 0.0005]
+2020-12-29 21:40:15,928 : using time: 13.0839 min
+2020-12-29 21:40:15,928 : **** Epoch:137/300
+2020-12-29 21:52:12,098 :  *  train_loss / train_pose_loss / train_pixel_loss:0.5704 / 0.1947 / 0.7513
+2020-12-29 21:53:23,538 :  *  test_loss / test_pose_loss / test_pixel_loss: 1.4057 / 0.1704 / 2.4706
+2020-12-29 21:53:23,540 : current best epoch : 94
+2020-12-29 21:53:23,540 : learning_rate = [0.0005, 0.0005]
+2020-12-29 21:53:23,540 : using time: 13.1269 min
+2020-12-29 21:53:23,540 : **** Epoch:138/300
+2020-12-29 22:05:31,042 :  *  train_loss / train_pose_loss / train_pixel_loss:0.5513 / 0.1966 / 0.7094
+2020-12-29 22:06:39,778 :  *  test_loss / test_pose_loss / test_pixel_loss: 1.2764 / 0.209 / 2.1347
+2020-12-29 22:06:39,779 : current best epoch : 94
+2020-12-29 22:06:39,780 : learning_rate = [0.0005, 0.0005]
+2020-12-29 22:06:39,780 : using time: 13.2707 min
+2020-12-29 22:06:39,780 : **** Epoch:139/300
+2020-12-29 22:18:35,723 :  *  train_loss / train_pose_loss / train_pixel_loss:0.5616 / 0.1993 / 0.7246
+2020-12-29 22:19:46,027 :  *  test_loss / test_pose_loss / test_pixel_loss: 1.4743 / 0.1863 / 2.5759
+2020-12-29 22:19:46,028 : current best epoch : 94
+2020-12-29 22:19:46,029 : learning_rate = [0.0005, 0.0005]
+2020-12-29 22:19:46,029 : using time: 13.1042 min
+2020-12-29 22:19:46,029 : **** Epoch:140/300
+2020-12-29 22:31:32,989 :  *  train_loss / train_pose_loss / train_pixel_loss:0.5306 / 0.1929 / 0.6752
+2020-12-29 22:32:43,076 :  *  test_loss / test_pose_loss / test_pixel_loss: 1.1046 / 0.1728 / 1.8636
+2020-12-29 22:32:43,078 : current best epoch : 94
+2020-12-29 22:32:43,078 : learning_rate = [0.0005, 0.0005]
+2020-12-29 22:32:43,078 : using time: 12.9508 min
+2020-12-29 22:32:43,078 : **** Epoch:141/300
+2020-12-29 22:44:31,195 :  *  train_loss / train_pose_loss / train_pixel_loss:0.5803 / 0.1958 / 0.7691
+2020-12-29 22:45:41,947 :  *  test_loss / test_pose_loss / test_pixel_loss: 0.9259 / 0.2019 / 1.448
+2020-12-29 22:45:41,948 : current best epoch : 94
+2020-12-29 22:45:41,949 : learning_rate = [0.0005, 0.0005]
+2020-12-29 22:45:41,949 : using time: 12.9812 min
+2020-12-29 22:45:41,949 : **** Epoch:142/300
+2020-12-29 22:57:30,511 :  *  train_loss / train_pose_loss / train_pixel_loss:0.5658 / 0.2005 / 0.7305
+2020-12-29 22:58:39,991 :  *  test_loss / test_pose_loss / test_pixel_loss: 1.3481 / 0.2177 / 2.2607
+2020-12-29 22:58:39,993 : current best epoch : 94
+2020-12-29 22:58:39,993 : learning_rate = [0.0005, 0.0005]
+2020-12-29 22:58:39,994 : using time: 12.9674 min
+2020-12-29 22:58:39,994 : **** Epoch:143/300
+2020-12-29 23:10:12,322 :  *  train_loss / train_pose_loss / train_pixel_loss:0.5845 / 0.2042 / 0.7607
+2020-12-29 23:11:24,317 :  *  test_loss / test_pose_loss / test_pixel_loss: 0.9182 / 0.1658 / 1.5049
+2020-12-29 23:11:24,319 : current best epoch : 94
+2020-12-29 23:11:24,320 : learning_rate = [0.0005, 0.0005]
+2020-12-29 23:11:24,320 : using time: 12.7388 min
+2020-12-29 23:11:24,320 : **** Epoch:144/300
+2020-12-29 23:23:08,991 :  *  train_loss / train_pose_loss / train_pixel_loss:0.5696 / 0.1987 / 0.7417
+2020-12-29 23:24:20,850 :  *  test_loss / test_pose_loss / test_pixel_loss: 1.4261 / 0.1738 / 2.5047
+2020-12-29 23:24:20,852 : current best epoch : 94
+2020-12-29 23:24:20,852 : learning_rate = [0.0005, 0.0005]
+2020-12-29 23:24:20,852 : using time: 12.9422 min
+2020-12-29 23:24:20,852 : **** Epoch:145/300
+2020-12-29 23:36:07,332 :  *  train_loss / train_pose_loss / train_pixel_loss:0.5541 / 0.1974 / 0.7133
+2020-12-29 23:37:16,894 :  *  test_loss / test_pose_loss / test_pixel_loss: 1.0139 / 0.1916 / 1.6446
+2020-12-29 23:37:16,895 : current best epoch : 94
+2020-12-29 23:37:16,895 : learning_rate = [0.0005, 0.0005]
+2020-12-29 23:37:16,895 : using time: 12.934 min
+2020-12-29 23:37:16,895 : **** Epoch:146/300
+2020-12-29 23:49:16,337 :  *  train_loss / train_pose_loss / train_pixel_loss:0.5464 / 0.1913 / 0.7102
+2020-12-29 23:50:25,629 :  *  test_loss / test_pose_loss / test_pixel_loss: 1.0921 / 0.1822 / 1.8199
+2020-12-29 23:50:25,630 : current best epoch : 94
+2020-12-29 23:50:25,631 : learning_rate = [0.0005, 0.0005]
+2020-12-29 23:50:25,631 : using time: 13.1456 min
+2020-12-29 23:50:25,631 : **** Epoch:147/300
+2020-12-30 00:02:12,274 :  *  train_loss / train_pose_loss / train_pixel_loss:0.5701 / 0.1983 / 0.7437
+2020-12-30 00:03:22,126 :  *  test_loss / test_pose_loss / test_pixel_loss: 0.9988 / 0.1705 / 1.6566
+2020-12-30 00:03:22,127 : current best epoch : 94
+2020-12-30 00:03:22,128 : learning_rate = [0.0005, 0.0005]
+2020-12-30 00:03:22,128 : using time: 12.9416 min
+2020-12-30 00:03:22,128 : **** Epoch:148/300
+2020-12-30 00:15:11,860 :  *  train_loss / train_pose_loss / train_pixel_loss:0.544 / 0.1909 / 0.7063
+2020-12-30 00:16:21,299 :  *  test_loss / test_pose_loss / test_pixel_loss: 1.3842 / 0.2057 / 2.3572
+2020-12-30 00:16:21,301 : current best epoch : 94
+2020-12-30 00:16:21,301 : learning_rate = [0.0005, 0.0005]
+2020-12-30 00:16:21,301 : using time: 12.9862 min
+2020-12-30 00:16:21,301 : **** Epoch:149/300
+2020-12-30 00:28:04,481 :  *  train_loss / train_pose_loss / train_pixel_loss:0.56 / 0.1952 / 0.7296
+2020-12-30 00:29:15,918 :  *  test_loss / test_pose_loss / test_pixel_loss: 1.2598 / 0.1797 / 2.1602
+2020-12-30 00:29:15,919 : current best epoch : 94
+2020-12-30 00:29:15,920 : learning_rate = [0.0005, 0.0005]
+2020-12-30 00:29:15,920 : using time: 12.9103 min
+2020-12-30 00:29:15,920 : **** Epoch:150/300
+2020-12-30 00:40:54,215 :  *  train_loss / train_pose_loss / train_pixel_loss:0.5554 / 0.1951 / 0.7206
+2020-12-30 00:42:03,635 :  *  test_loss / test_pose_loss / test_pixel_loss: 1.1377 / 0.1549 / 1.9657
+2020-12-30 00:42:03,637 : current best epoch : 94
+2020-12-30 00:42:03,637 : learning_rate = [0.0005, 0.0005]
+2020-12-30 00:42:03,637 : using time: 12.7953 min
+2020-12-30 00:42:03,637 : **** Epoch:151/300
+2020-12-30 00:53:52,518 :  *  train_loss / train_pose_loss / train_pixel_loss:0.5622 / 0.192 / 0.7405
+2020-12-30 00:55:04,175 :  *  test_loss / test_pose_loss / test_pixel_loss: 1.3528 / 0.1587 / 2.3883
+2020-12-30 00:55:04,177 : current best epoch : 94
+2020-12-30 00:55:04,177 : learning_rate = [0.0005, 0.0005]
+2020-12-30 00:55:04,177 : using time: 13.009 min
+2020-12-30 00:55:04,177 : **** Epoch:152/300
+2020-12-30 01:06:44,588 :  *  train_loss / train_pose_loss / train_pixel_loss:0.5563 / 0.1904 / 0.732
+2020-12-30 01:07:57,073 :  *  test_loss / test_pose_loss / test_pixel_loss: 0.9011 / 0.1487 / 1.5048
+2020-12-30 01:08:01,192 : current best epoch : 152
+2020-12-30 01:08:01,192 : learning_rate = [0.0005, 0.0005]
+2020-12-30 01:08:01,192 : using time: 12.9503 min
+2020-12-30 01:08:01,193 : **** Epoch:153/300
+2020-12-30 01:19:49,425 :  *  train_loss / train_pose_loss / train_pixel_loss:0.5422 / 0.1941 / 0.696
+2020-12-30 01:20:59,682 :  *  test_loss / test_pose_loss / test_pixel_loss: 1.1977 / 0.1526 / 2.0901
+2020-12-30 01:20:59,683 : current best epoch : 152
+2020-12-30 01:20:59,684 : learning_rate = [0.0005, 0.0005]
+2020-12-30 01:20:59,684 : using time: 12.9749 min
+2020-12-30 01:20:59,684 : **** Epoch:154/300
+2020-12-30 01:32:49,093 :  *  train_loss / train_pose_loss / train_pixel_loss:0.5415 / 0.1871 / 0.7088
+2020-12-30 01:33:58,771 :  *  test_loss / test_pose_loss / test_pixel_loss: 1.3679 / 0.1687 / 2.3984
+2020-12-30 01:33:58,773 : current best epoch : 152
+2020-12-30 01:33:58,773 : learning_rate = [0.0005, 0.0005]
+2020-12-30 01:33:58,773 : using time: 12.9848 min
+2020-12-30 01:33:58,773 : **** Epoch:155/300
+2020-12-30 01:45:43,927 :  *  train_loss / train_pose_loss / train_pixel_loss:0.5672 / 0.1995 / 0.7354
+2020-12-30 01:46:57,403 :  *  test_loss / test_pose_loss / test_pixel_loss: 1.2182 / 0.1924 / 2.0515
+2020-12-30 01:46:57,405 : current best epoch : 152
+2020-12-30 01:46:57,405 : learning_rate = [0.0005, 0.0005]
+2020-12-30 01:46:57,405 : using time: 12.9772 min
+2020-12-30 01:46:57,405 : **** Epoch:156/300
+2020-12-30 01:58:42,436 :  *  train_loss / train_pose_loss / train_pixel_loss:0.5794 / 0.1945 / 0.7698
+2020-12-30 01:59:53,475 :  *  test_loss / test_pose_loss / test_pixel_loss: 1.4986 / 0.1641 / 2.669
+2020-12-30 01:59:53,476 : current best epoch : 152
+2020-12-30 01:59:53,477 : learning_rate = [0.0005, 0.0005]
+2020-12-30 01:59:53,477 : using time: 12.9345 min
+2020-12-30 01:59:53,477 : **** Epoch:157/300
+2020-12-30 02:11:32,433 :  *  train_loss / train_pose_loss / train_pixel_loss:0.5502 / 0.1925 / 0.7154
+2020-12-30 02:12:41,701 :  *  test_loss / test_pose_loss / test_pixel_loss: 1.2152 / 0.1785 / 2.0733
+2020-12-30 02:12:41,702 : current best epoch : 152
+2020-12-30 02:12:41,702 : learning_rate = [0.0005, 0.0005]
+2020-12-30 02:12:41,702 : using time: 12.8038 min
+2020-12-30 02:12:41,702 : **** Epoch:158/300
+2020-12-30 02:24:15,930 :  *  train_loss / train_pose_loss / train_pixel_loss:0.5464 / 0.1947 / 0.7033
+2020-12-30 02:25:28,081 :  *  test_loss / test_pose_loss / test_pixel_loss: 1.331 / 0.1669 / 2.3281
+2020-12-30 02:25:28,083 : current best epoch : 152
+2020-12-30 02:25:28,083 : learning_rate = [0.0005, 0.0005]
+2020-12-30 02:25:28,083 : using time: 12.773 min
+2020-12-30 02:25:28,083 : **** Epoch:159/300
+2020-12-30 02:37:07,215 :  *  train_loss / train_pose_loss / train_pixel_loss:0.5674 / 0.1917 / 0.7514
+2020-12-30 02:38:21,679 :  *  test_loss / test_pose_loss / test_pixel_loss: 1.0615 / 0.193 / 1.7369
+2020-12-30 02:38:21,680 : current best epoch : 152
+2020-12-30 02:38:21,681 : learning_rate = [0.0005, 0.0005]
+2020-12-30 02:38:21,681 : using time: 12.8933 min
+2020-12-30 02:38:21,681 : **** Epoch:160/300
+2020-12-30 02:50:06,737 :  *  train_loss / train_pose_loss / train_pixel_loss:0.5456 / 0.1907 / 0.7098
+2020-12-30 02:51:16,575 :  *  test_loss / test_pose_loss / test_pixel_loss: 1.4875 / 0.2264 / 2.5222
+2020-12-30 02:51:16,576 : current best epoch : 152
+2020-12-30 02:51:16,577 : learning_rate = [0.0005, 0.0005]
+2020-12-30 02:51:16,577 : using time: 12.9149 min
+2020-12-30 02:51:16,577 : **** Epoch:161/300
+2020-12-30 03:02:55,816 :  *  train_loss / train_pose_loss / train_pixel_loss:0.5511 / 0.1897 / 0.7227
+2020-12-30 03:04:08,830 :  *  test_loss / test_pose_loss / test_pixel_loss: 0.996 / 0.1744 / 1.6432
+2020-12-30 03:04:08,832 : current best epoch : 152
+2020-12-30 03:04:08,832 : learning_rate = [0.0005, 0.0005]
+2020-12-30 03:04:08,832 : using time: 12.8709 min
+2020-12-30 03:04:08,833 : **** Epoch:162/300
+2020-12-30 03:15:55,303 :  *  train_loss / train_pose_loss / train_pixel_loss:0.5672 / 0.2011 / 0.7321
+2020-12-30 03:17:05,526 :  *  test_loss / test_pose_loss / test_pixel_loss: 1.6258 / 0.1881 / 2.8754
+2020-12-30 03:17:05,528 : current best epoch : 152
+2020-12-30 03:17:05,528 : learning_rate = [0.0005, 0.0005]
+2020-12-30 03:17:05,528 : using time: 12.9449 min
+2020-12-30 03:17:05,528 : **** Epoch:163/300
+2020-12-30 03:28:43,598 :  *  train_loss / train_pose_loss / train_pixel_loss:0.5482 / 0.1908 / 0.7149
+2020-12-30 03:29:51,698 :  *  test_loss / test_pose_loss / test_pixel_loss: 1.1928 / 0.1692 / 2.0472
+2020-12-30 03:29:51,700 : current best epoch : 152
+2020-12-30 03:29:51,700 : learning_rate = [0.0005, 0.0005]
+2020-12-30 03:29:51,701 : using time: 12.7695 min
+2020-12-30 03:29:51,701 : **** Epoch:164/300
+2020-12-30 03:41:38,519 :  *  train_loss / train_pose_loss / train_pixel_loss:0.5786 / 0.1936 / 0.77
+2020-12-30 03:42:53,345 :  *  test_loss / test_pose_loss / test_pixel_loss: 1.4738 / 0.167 / 2.6136
+2020-12-30 03:42:53,347 : current best epoch : 152
+2020-12-30 03:42:53,347 : learning_rate = [0.0005, 0.0005]
+2020-12-30 03:42:53,347 : using time: 13.0274 min
+2020-12-30 03:42:53,347 : **** Epoch:165/300
+2020-12-30 03:54:33,244 :  *  train_loss / train_pose_loss / train_pixel_loss:0.5606 / 0.1965 / 0.7282
+2020-12-30 03:55:45,811 :  *  test_loss / test_pose_loss / test_pixel_loss: 1.1092 / 0.2066 / 1.8051
+2020-12-30 03:55:45,813 : current best epoch : 152
+2020-12-30 03:55:45,813 : learning_rate = [0.0005, 0.0005]
+2020-12-30 03:55:45,813 : using time: 12.8744 min
+2020-12-30 03:55:45,814 : **** Epoch:166/300
+2020-12-30 04:07:30,862 :  *  train_loss / train_pose_loss / train_pixel_loss:0.539 / 0.1897 / 0.6985
+2020-12-30 04:08:40,498 :  *  test_loss / test_pose_loss / test_pixel_loss: 1.2352 / 0.1597 / 2.1509
+2020-12-30 04:08:40,499 : current best epoch : 152
+2020-12-30 04:08:40,499 : learning_rate = [0.0005, 0.0005]
+2020-12-30 04:08:40,499 : using time: 12.9114 min
+2020-12-30 04:08:40,499 : **** Epoch:167/300
+2020-12-30 04:20:21,273 :  *  train_loss / train_pose_loss / train_pixel_loss:0.5649 / 0.1967 / 0.7365
+2020-12-30 04:21:34,003 :  *  test_loss / test_pose_loss / test_pixel_loss: 0.9651 / 0.1846 / 1.5611
+2020-12-30 04:21:34,004 : current best epoch : 152
+2020-12-30 04:21:34,004 : learning_rate = [0.0005, 0.0005]
+2020-12-30 04:21:34,004 : using time: 12.8917 min
+2020-12-30 04:21:34,004 : **** Epoch:168/300
+2020-12-30 04:33:16,646 :  *  train_loss / train_pose_loss / train_pixel_loss:0.5667 / 0.2014 / 0.7307
+2020-12-30 04:34:25,670 :  *  test_loss / test_pose_loss / test_pixel_loss: 1.1706 / 0.2049 / 1.9313
+2020-12-30 04:34:25,672 : current best epoch : 152
+2020-12-30 04:34:25,672 : learning_rate = [0.0005, 0.0005]
+2020-12-30 04:34:25,672 : using time: 12.8611 min
+2020-12-30 04:34:25,672 : **** Epoch:169/300
+2020-12-30 04:46:09,696 :  *  train_loss / train_pose_loss / train_pixel_loss:0.5482 / 0.1929 / 0.7105
+2020-12-30 04:47:18,797 :  *  test_loss / test_pose_loss / test_pixel_loss: 1.2266 / 0.174 / 2.1052
+2020-12-30 04:47:18,799 : current best epoch : 152
+2020-12-30 04:47:18,799 : learning_rate = [0.0005, 0.0005]
+2020-12-30 04:47:18,799 : using time: 12.8855 min
+2020-12-30 04:47:18,799 : **** Epoch:170/300
+2020-12-30 04:59:00,560 :  *  train_loss / train_pose_loss / train_pixel_loss:0.5392 / 0.1906 / 0.6972
+2020-12-30 05:00:11,447 :  *  test_loss / test_pose_loss / test_pixel_loss: 1.261 / 0.1898 / 2.1423
+2020-12-30 05:00:11,448 : current best epoch : 152
+2020-12-30 05:00:11,448 : learning_rate = [0.0005, 0.0005]
+2020-12-30 05:00:11,449 : using time: 12.8775 min
+2020-12-30 05:00:11,449 : **** Epoch:171/300
+2020-12-30 05:11:56,755 :  *  train_loss / train_pose_loss / train_pixel_loss:0.5354 / 0.1964 / 0.6781
+2020-12-30 05:13:08,714 :  *  test_loss / test_pose_loss / test_pixel_loss: 1.1051 / 0.1554 / 1.8994
+2020-12-30 05:13:08,715 : current best epoch : 152
+2020-12-30 05:13:08,715 : learning_rate = [0.0005, 0.0005]
+2020-12-30 05:13:08,715 : using time: 12.9544 min
+2020-12-30 05:13:08,716 : **** Epoch:172/300
+2020-12-30 05:24:48,637 :  *  train_loss / train_pose_loss / train_pixel_loss:0.5413 / 0.1949 / 0.6929
+2020-12-30 05:25:58,792 :  *  test_loss / test_pose_loss / test_pixel_loss: 0.8863 / 0.2004 / 1.3717
+2020-12-30 05:26:02,969 : current best epoch : 172
+2020-12-30 05:26:02,969 : learning_rate = [0.0005, 0.0005]
+2020-12-30 05:26:02,969 : using time: 12.9042 min
+2020-12-30 05:26:02,969 : **** Epoch:173/300
+2020-12-30 05:37:41,760 :  *  train_loss / train_pose_loss / train_pixel_loss:0.5358 / 0.1873 / 0.6971
+2020-12-30 05:38:51,548 :  *  test_loss / test_pose_loss / test_pixel_loss: 1.2316 / 0.1687 / 2.1257
+2020-12-30 05:38:51,550 : current best epoch : 172
+2020-12-30 05:38:51,550 : learning_rate = [0.0005, 0.0005]
+2020-12-30 05:38:51,551 : using time: 12.8097 min
+2020-12-30 05:38:51,551 : **** Epoch:174/300
+2020-12-30 05:50:33,563 :  *  train_loss / train_pose_loss / train_pixel_loss:0.5547 / 0.1954 / 0.7185
+2020-12-30 05:51:44,464 :  *  test_loss / test_pose_loss / test_pixel_loss: 1.0164 / 0.1921 / 1.6486
+2020-12-30 05:51:44,465 : current best epoch : 172
+2020-12-30 05:51:44,465 : learning_rate = [0.0005, 0.0005]
+2020-12-30 05:51:44,465 : using time: 12.8819 min
+2020-12-30 05:51:44,465 : **** Epoch:175/300
+2020-12-30 06:03:28,963 :  *  train_loss / train_pose_loss / train_pixel_loss:0.5536 / 0.1944 / 0.7184
+2020-12-30 06:04:38,231 :  *  test_loss / test_pose_loss / test_pixel_loss: 1.0153 / 0.1757 / 1.6791
+2020-12-30 06:04:38,233 : current best epoch : 172
+2020-12-30 06:04:38,233 : learning_rate = [0.0005, 0.0005]
+2020-12-30 06:04:38,233 : using time: 12.8961 min
+2020-12-30 06:04:38,233 : **** Epoch:176/300
+2020-12-30 06:16:19,250 :  *  train_loss / train_pose_loss / train_pixel_loss:0.5386 / 0.1926 / 0.692
+2020-12-30 06:17:31,901 :  *  test_loss / test_pose_loss / test_pixel_loss: 1.0641 / 0.1841 / 1.76
+2020-12-30 06:17:31,903 : current best epoch : 172
+2020-12-30 06:17:31,903 : learning_rate = [0.0005, 0.0005]
+2020-12-30 06:17:31,903 : using time: 12.8945 min
+2020-12-30 06:17:31,903 : **** Epoch:177/300
+2020-12-30 06:29:13,852 :  *  train_loss / train_pose_loss / train_pixel_loss:0.5472 / 0.188 / 0.7183
+2020-12-30 06:30:24,905 :  *  test_loss / test_pose_loss / test_pixel_loss: 1.131 / 0.1751 / 1.9119
+2020-12-30 06:30:24,906 : current best epoch : 172
+2020-12-30 06:30:24,907 : learning_rate = [0.0005, 0.0005]
+2020-12-30 06:30:24,907 : using time: 12.8834 min
+2020-12-30 06:30:24,907 : **** Epoch:178/300
+2020-12-30 06:42:32,173 :  *  train_loss / train_pose_loss / train_pixel_loss:0.5568 / 0.1948 / 0.7241
+2020-12-30 06:43:43,200 :  *  test_loss / test_pose_loss / test_pixel_loss: 1.3937 / 0.1836 / 2.4203
+2020-12-30 06:43:43,201 : current best epoch : 172
+2020-12-30 06:43:43,201 : learning_rate = [0.0005, 0.0005]
+2020-12-30 06:43:43,201 : using time: 13.3049 min
+2020-12-30 06:43:43,202 : **** Epoch:179/300
+2020-12-30 06:55:24,020 :  *  train_loss / train_pose_loss / train_pixel_loss:0.5554 / 0.1943 / 0.7223
+2020-12-30 06:56:34,986 :  *  test_loss / test_pose_loss / test_pixel_loss: 1.2439 / 0.1702 / 2.1475
+2020-12-30 06:56:34,988 : current best epoch : 172
+2020-12-30 06:56:34,988 : learning_rate = [0.0005, 0.0005]
+2020-12-30 06:56:34,988 : using time: 12.8631 min
+2020-12-30 06:56:34,988 : **** Epoch:180/300
+2020-12-30 07:08:19,789 :  *  train_loss / train_pose_loss / train_pixel_loss:0.5668 / 0.1959 / 0.7418
+2020-12-30 07:09:28,563 :  *  test_loss / test_pose_loss / test_pixel_loss: 1.3479 / 0.1887 / 2.3184
+2020-12-30 07:09:28,564 : current best epoch : 172
+2020-12-30 07:09:28,565 : learning_rate = [0.00025, 0.00025]
+2020-12-30 07:09:28,565 : using time: 12.8929 min
+2020-12-30 07:09:28,565 : **** Epoch:181/300
+2020-12-30 07:21:08,315 :  *  train_loss / train_pose_loss / train_pixel_loss:0.5097 / 0.1763 / 0.6667
+2020-12-30 07:22:18,682 :  *  test_loss / test_pose_loss / test_pixel_loss: 1.2357 / 0.1946 / 2.0823
+2020-12-30 07:22:18,683 : current best epoch : 172
+2020-12-30 07:22:18,684 : learning_rate = [0.00025, 0.00025]
+2020-12-30 07:22:18,684 : using time: 12.8353 min
+2020-12-30 07:22:18,684 : **** Epoch:182/300
+2020-12-30 07:34:14,936 :  *  train_loss / train_pose_loss / train_pixel_loss:0.4978 / 0.1755 / 0.6445
+2020-12-30 07:35:24,660 :  *  test_loss / test_pose_loss / test_pixel_loss: 1.1608 / 0.1548 / 2.0121
+2020-12-30 07:35:24,661 : current best epoch : 172
+2020-12-30 07:35:24,661 : learning_rate = [0.00025, 0.00025]
+2020-12-30 07:35:24,662 : using time: 13.0996 min
+2020-12-30 07:35:24,662 : **** Epoch:183/300
+2020-12-30 07:47:11,992 :  *  train_loss / train_pose_loss / train_pixel_loss:0.4848 / 0.1763 / 0.617
+2020-12-30 07:48:22,191 :  *  test_loss / test_pose_loss / test_pixel_loss: 1.1564 / 0.1772 / 1.9585
+2020-12-30 07:48:22,193 : current best epoch : 172
+2020-12-30 07:48:22,193 : learning_rate = [0.00025, 0.00025]
+2020-12-30 07:48:22,193 : using time: 12.9589 min
+2020-12-30 07:48:22,193 : **** Epoch:184/300
+2020-12-30 08:00:12,112 :  *  train_loss / train_pose_loss / train_pixel_loss:0.4852 / 0.1744 / 0.6217
+2020-12-30 08:01:22,181 :  *  test_loss / test_pose_loss / test_pixel_loss: 1.091 / 0.162 / 1.8581
+2020-12-30 08:01:22,182 : current best epoch : 172
+2020-12-30 08:01:22,182 : learning_rate = [0.00025, 0.00025]
+2020-12-30 08:01:22,182 : using time: 12.9998 min
+2020-12-30 08:01:22,182 : **** Epoch:185/300
+2020-12-30 08:13:05,925 :  *  train_loss / train_pose_loss / train_pixel_loss:0.4765 / 0.1717 / 0.6096
+2020-12-30 08:14:19,305 :  *  test_loss / test_pose_loss / test_pixel_loss: 0.9856 / 0.1767 / 1.6177
+2020-12-30 08:14:19,307 : current best epoch : 172
+2020-12-30 08:14:19,307 : learning_rate = [0.00025, 0.00025]
+2020-12-30 08:14:19,307 : using time: 12.9521 min
+2020-12-30 08:14:19,307 : **** Epoch:186/300
+2020-12-30 08:26:09,504 :  *  train_loss / train_pose_loss / train_pixel_loss:0.4964 / 0.1824 / 0.628
+2020-12-30 08:27:19,540 :  *  test_loss / test_pose_loss / test_pixel_loss: 1.077 / 0.1707 / 1.8126
+2020-12-30 08:27:19,542 : current best epoch : 172
+2020-12-30 08:27:19,543 : learning_rate = [0.00025, 0.00025]
+2020-12-30 08:27:19,543 : using time: 13.0039 min
+2020-12-30 08:27:19,543 : **** Epoch:187/300
+2020-12-30 08:39:16,547 :  *  train_loss / train_pose_loss / train_pixel_loss:0.4944 / 0.1789 / 0.6311
+2020-12-30 08:40:28,060 :  *  test_loss / test_pose_loss / test_pixel_loss: 1.1748 / 0.1688 / 2.0119
+2020-12-30 08:40:28,061 : current best epoch : 172
+2020-12-30 08:40:28,061 : learning_rate = [0.00025, 0.00025]
+2020-12-30 08:40:28,061 : using time: 13.142 min
+2020-12-30 08:40:28,061 : **** Epoch:188/300
+2020-12-30 08:52:11,927 :  *  train_loss / train_pose_loss / train_pixel_loss:0.4935 / 0.1748 / 0.6374
+2020-12-30 08:53:26,341 :  *  test_loss / test_pose_loss / test_pixel_loss: 1.1233 / 0.1727 / 1.9013
+2020-12-30 08:53:26,343 : current best epoch : 172
+2020-12-30 08:53:26,343 : learning_rate = [0.00025, 0.00025]
+2020-12-30 08:53:26,343 : using time: 12.9714 min
+2020-12-30 08:53:26,343 : **** Epoch:189/300
+2020-12-30 09:05:09,478 :  *  train_loss / train_pose_loss / train_pixel_loss:0.5046 / 0.1728 / 0.6637
+2020-12-30 09:06:19,477 :  *  test_loss / test_pose_loss / test_pixel_loss: 1.1177 / 0.1729 / 1.8894
+2020-12-30 09:06:19,479 : current best epoch : 172
+2020-12-30 09:06:19,479 : learning_rate = [0.00025, 0.00025]
+2020-12-30 09:06:19,479 : using time: 12.8856 min
+2020-12-30 09:06:19,479 : **** Epoch:190/300
+2020-12-30 09:18:00,632 :  *  train_loss / train_pose_loss / train_pixel_loss:0.4914 / 0.1747 / 0.6333
+2020-12-30 09:19:11,298 :  *  test_loss / test_pose_loss / test_pixel_loss: 1.1623 / 0.1665 / 1.9915
+2020-12-30 09:19:11,299 : current best epoch : 172
+2020-12-30 09:19:11,299 : learning_rate = [0.00025, 0.00025]
+2020-12-30 09:19:11,299 : using time: 12.8637 min
+2020-12-30 09:19:11,299 : **** Epoch:191/300
+2020-12-30 09:30:56,981 :  *  train_loss / train_pose_loss / train_pixel_loss:0.5027 / 0.1796 / 0.6462
+2020-12-30 09:32:06,865 :  *  test_loss / test_pose_loss / test_pixel_loss: 1.1657 / 0.1696 / 1.9921
+2020-12-30 09:32:06,866 : current best epoch : 172
+2020-12-30 09:32:06,866 : learning_rate = [0.00025, 0.00025]
+2020-12-30 09:32:06,866 : using time: 12.9261 min
+2020-12-30 09:32:06,866 : **** Epoch:192/300
+2020-12-30 09:43:50,428 :  *  train_loss / train_pose_loss / train_pixel_loss:0.4822 / 0.1791 / 0.6061
+2020-12-30 09:45:01,031 :  *  test_loss / test_pose_loss / test_pixel_loss: 0.9395 / 0.1661 / 1.5467
+2020-12-30 09:45:01,032 : current best epoch : 172
+2020-12-30 09:45:01,033 : learning_rate = [0.00025, 0.00025]
+2020-12-30 09:45:01,033 : using time: 12.9028 min
+2020-12-30 09:45:01,033 : **** Epoch:193/300
+2020-12-30 09:56:40,033 :  *  train_loss / train_pose_loss / train_pixel_loss:0.5037 / 0.1749 / 0.6576
+2020-12-30 09:57:51,374 :  *  test_loss / test_pose_loss / test_pixel_loss: 1.3017 / 0.1829 / 2.2375
+2020-12-30 09:57:51,375 : current best epoch : 172
+2020-12-30 09:57:51,376 : learning_rate = [0.00025, 0.00025]
+2020-12-30 09:57:51,376 : using time: 12.839 min
+2020-12-30 09:57:51,376 : **** Epoch:194/300
+2020-12-30 10:09:31,222 :  *  train_loss / train_pose_loss / train_pixel_loss:0.4944 / 0.1798 / 0.6292
+2020-12-30 10:10:40,741 :  *  test_loss / test_pose_loss / test_pixel_loss: 0.9517 / 0.1568 / 1.5898
+2020-12-30 10:10:40,743 : current best epoch : 172
+2020-12-30 10:10:40,743 : learning_rate = [0.00025, 0.00025]
+2020-12-30 10:10:40,743 : using time: 12.8228 min
+2020-12-30 10:10:40,743 : **** Epoch:195/300
+2020-12-30 10:22:26,771 :  *  train_loss / train_pose_loss / train_pixel_loss:0.4838 / 0.1767 / 0.6143
+2020-12-30 10:23:37,308 :  *  test_loss / test_pose_loss / test_pixel_loss: 0.9484 / 0.1572 / 1.5823
+2020-12-30 10:23:37,309 : current best epoch : 172
+2020-12-30 10:23:37,310 : learning_rate = [0.00025, 0.00025]
+2020-12-30 10:23:37,310 : using time: 12.9428 min
+2020-12-30 10:23:37,310 : **** Epoch:196/300
+2020-12-30 10:35:22,251 :  *  train_loss / train_pose_loss / train_pixel_loss:0.5014 / 0.1758 / 0.6513
+2020-12-30 10:36:33,289 :  *  test_loss / test_pose_loss / test_pixel_loss: 1.1134 / 0.1845 / 1.8577
+2020-12-30 10:36:33,290 : current best epoch : 172
+2020-12-30 10:36:33,291 : learning_rate = [0.00025, 0.00025]
+2020-12-30 10:36:33,291 : using time: 12.933 min
+2020-12-30 10:36:33,291 : **** Epoch:197/300
+2020-12-30 10:48:20,189 :  *  train_loss / train_pose_loss / train_pixel_loss:0.502 / 0.176 / 0.652
+2020-12-30 10:49:31,134 :  *  test_loss / test_pose_loss / test_pixel_loss: 1.2651 / 0.1902 / 2.1499
+2020-12-30 10:49:31,135 : current best epoch : 172
+2020-12-30 10:49:31,136 : learning_rate = [0.00025, 0.00025]
+2020-12-30 10:49:31,136 : using time: 12.9641 min
+2020-12-30 10:49:31,136 : **** Epoch:198/300
+2020-12-30 11:01:21,913 :  *  train_loss / train_pose_loss / train_pixel_loss:0.4939 / 0.1742 / 0.6394
+2020-12-30 11:02:31,653 :  *  test_loss / test_pose_loss / test_pixel_loss: 1.2699 / 0.1762 / 2.1874
+2020-12-30 11:02:31,654 : current best epoch : 172
+2020-12-30 11:02:31,655 : learning_rate = [0.00025, 0.00025]
+2020-12-30 11:02:31,655 : using time: 13.0086 min
+2020-12-30 11:02:31,655 : **** Epoch:199/300
+2020-12-30 11:14:25,125 :  *  train_loss / train_pose_loss / train_pixel_loss:0.4835 / 0.1727 / 0.6217
+2020-12-30 11:15:34,968 :  *  test_loss / test_pose_loss / test_pixel_loss: 1.0143 / 0.1639 / 1.7008
+2020-12-30 11:15:34,970 : current best epoch : 172
+2020-12-30 11:15:34,970 : learning_rate = [0.00025, 0.00025]
+2020-12-30 11:15:34,971 : using time: 13.0553 min
+2020-12-30 11:15:34,971 : **** Epoch:200/300
+2020-12-30 11:27:14,485 :  *  train_loss / train_pose_loss / train_pixel_loss:0.4894 / 0.1709 / 0.6371
+2020-12-30 11:28:26,067 :  *  test_loss / test_pose_loss / test_pixel_loss: 1.2597 / 0.2289 / 2.0616
+2020-12-30 11:28:26,068 : current best epoch : 172
+2020-12-30 11:28:26,069 : learning_rate = [0.00025, 0.00025]
+2020-12-30 11:28:26,069 : using time: 12.8516 min
+2020-12-30 11:28:26,069 : **** Epoch:201/300
+2020-12-30 11:40:18,565 :  *  train_loss / train_pose_loss / train_pixel_loss:0.4985 / 0.1821 / 0.6328
+2020-12-30 11:41:27,917 :  *  test_loss / test_pose_loss / test_pixel_loss: 1.1631 / 0.177 / 1.9723
+2020-12-30 11:41:27,919 : current best epoch : 172
+2020-12-30 11:41:27,919 : learning_rate = [0.00025, 0.00025]
+2020-12-30 11:41:27,919 : using time: 13.0308 min
+2020-12-30 11:41:27,919 : **** Epoch:202/300
+2020-12-30 11:53:17,117 :  *  train_loss / train_pose_loss / train_pixel_loss:0.4702 / 0.1738 / 0.5928
+2020-12-30 11:54:28,588 :  *  test_loss / test_pose_loss / test_pixel_loss: 0.9729 / 0.1795 / 1.5868
+2020-12-30 11:54:28,589 : current best epoch : 172
+2020-12-30 11:54:28,589 : learning_rate = [0.00025, 0.00025]
+2020-12-30 11:54:28,590 : using time: 13.0112 min
+2020-12-30 11:54:28,590 : **** Epoch:203/300
+2020-12-30 12:06:09,455 :  *  train_loss / train_pose_loss / train_pixel_loss:0.4875 / 0.1732 / 0.6288
+2020-12-30 12:07:20,556 :  *  test_loss / test_pose_loss / test_pixel_loss: 1.1959 / 0.1871 / 2.0176
+2020-12-30 12:07:20,558 : current best epoch : 172
+2020-12-30 12:07:20,558 : learning_rate = [0.00025, 0.00025]
+2020-12-30 12:07:20,558 : using time: 12.8661 min
+2020-12-30 12:07:20,558 : **** Epoch:204/300
+2020-12-30 12:19:08,111 :  *  train_loss / train_pose_loss / train_pixel_loss:0.4941 / 0.1745 / 0.6393
+2020-12-30 12:20:18,525 :  *  test_loss / test_pose_loss / test_pixel_loss: 1.1921 / 0.1856 / 2.0128
+2020-12-30 12:20:18,526 : current best epoch : 172
+2020-12-30 12:20:18,526 : learning_rate = [0.00025, 0.00025]
+2020-12-30 12:20:18,526 : using time: 12.9661 min
+2020-12-30 12:20:18,526 : **** Epoch:205/300
+2020-12-30 12:31:53,123 :  *  train_loss / train_pose_loss / train_pixel_loss:0.4991 / 0.1759 / 0.6464
+2020-12-30 12:33:02,787 :  *  test_loss / test_pose_loss / test_pixel_loss: 1.4048 / 0.1844 / 2.4408
+2020-12-30 12:33:02,789 : current best epoch : 172
+2020-12-30 12:33:02,789 : learning_rate = [0.00025, 0.00025]
+2020-12-30 12:33:02,789 : using time: 12.7377 min
+2020-12-30 12:33:02,789 : **** Epoch:206/300
+2020-12-30 12:44:42,693 :  *  train_loss / train_pose_loss / train_pixel_loss:0.4959 / 0.1773 / 0.6373
+2020-12-30 12:45:52,737 :  *  test_loss / test_pose_loss / test_pixel_loss: 0.9895 / 0.1705 / 1.638
+2020-12-30 12:45:52,738 : current best epoch : 172
+2020-12-30 12:45:52,738 : learning_rate = [0.00025, 0.00025]
+2020-12-30 12:45:52,738 : using time: 12.8325 min
+2020-12-30 12:45:52,739 : **** Epoch:207/300
+2020-12-30 12:57:35,845 :  *  train_loss / train_pose_loss / train_pixel_loss:0.4935 / 0.1759 / 0.6353
+2020-12-30 12:58:48,662 :  *  test_loss / test_pose_loss / test_pixel_loss: 1.1026 / 0.1682 / 1.8687
+2020-12-30 12:58:48,664 : current best epoch : 172
+2020-12-30 12:58:48,664 : learning_rate = [0.00025, 0.00025]
+2020-12-30 12:58:48,664 : using time: 12.9321 min
+2020-12-30 12:58:48,664 : **** Epoch:208/300
+2020-12-30 13:10:25,850 :  *  train_loss / train_pose_loss / train_pixel_loss:0.5006 / 0.1798 / 0.6417
+2020-12-30 13:11:36,270 :  *  test_loss / test_pose_loss / test_pixel_loss: 0.942 / 0.1511 / 1.5817
+2020-12-30 13:11:36,271 : current best epoch : 172
+2020-12-30 13:11:36,271 : learning_rate = [0.00025, 0.00025]
+2020-12-30 13:11:36,271 : using time: 12.7935 min
+2020-12-30 13:11:36,271 : **** Epoch:209/300
+2020-12-30 13:23:14,835 :  *  train_loss / train_pose_loss / train_pixel_loss:0.4773 / 0.1743 / 0.606
+2020-12-30 13:24:27,947 :  *  test_loss / test_pose_loss / test_pixel_loss: 0.9216 / 0.1617 / 1.5197
+2020-12-30 13:24:27,948 : current best epoch : 172
+2020-12-30 13:24:27,948 : learning_rate = [0.00025, 0.00025]
+2020-12-30 13:24:27,949 : using time: 12.8613 min
+2020-12-30 13:24:27,949 : **** Epoch:210/300
+2020-12-30 13:36:16,134 :  *  train_loss / train_pose_loss / train_pixel_loss:0.492 / 0.1787 / 0.6268
+2020-12-30 13:37:29,252 :  *  test_loss / test_pose_loss / test_pixel_loss: 1.1267 / 0.1749 / 1.9036
+2020-12-30 13:37:29,253 : current best epoch : 172
+2020-12-30 13:37:29,253 : learning_rate = [0.00025, 0.00025]
+2020-12-30 13:37:29,253 : using time: 13.0217 min
+2020-12-30 13:37:29,253 : **** Epoch:211/300
+2020-12-30 13:49:32,159 :  *  train_loss / train_pose_loss / train_pixel_loss:0.4844 / 0.1751 / 0.6185
+2020-12-30 13:50:40,729 :  *  test_loss / test_pose_loss / test_pixel_loss: 0.9092 / 0.1705 / 1.4773
+2020-12-30 13:50:40,731 : current best epoch : 172
+2020-12-30 13:50:40,731 : learning_rate = [0.00025, 0.00025]
+2020-12-30 13:50:40,731 : using time: 13.1913 min
+2020-12-30 13:50:40,731 : **** Epoch:212/300
+2020-12-30 14:02:29,717 :  *  train_loss / train_pose_loss / train_pixel_loss:0.4912 / 0.1729 / 0.6366
+2020-12-30 14:03:40,950 :  *  test_loss / test_pose_loss / test_pixel_loss: 1.185 / 0.1934 / 1.9832
+2020-12-30 14:03:40,952 : current best epoch : 172
+2020-12-30 14:03:40,952 : learning_rate = [0.00025, 0.00025]
+2020-12-30 14:03:40,952 : using time: 13.0037 min
+2020-12-30 14:03:40,952 : **** Epoch:213/300
+2020-12-30 14:15:17,888 :  *  train_loss / train_pose_loss / train_pixel_loss:0.4933 / 0.1723 / 0.642
+2020-12-30 14:16:28,389 :  *  test_loss / test_pose_loss / test_pixel_loss: 0.7809 / 0.1635 / 1.2348
+2020-12-30 14:16:32,454 : current best epoch : 213
+2020-12-30 14:16:32,455 : learning_rate = [0.00025, 0.00025]
+2020-12-30 14:16:32,455 : using time: 12.8584 min
+2020-12-30 14:16:32,455 : **** Epoch:214/300
+2020-12-30 14:28:23,341 :  *  train_loss / train_pose_loss / train_pixel_loss:0.4806 / 0.1759 / 0.6095
+2020-12-30 14:29:35,990 :  *  test_loss / test_pose_loss / test_pixel_loss: 0.8978 / 0.1924 / 1.4108
+2020-12-30 14:29:35,991 : current best epoch : 213
+2020-12-30 14:29:35,992 : learning_rate = [0.00025, 0.00025]
+2020-12-30 14:29:35,992 : using time: 13.0589 min
+2020-12-30 14:29:35,992 : **** Epoch:215/300
+2020-12-30 14:41:16,914 :  *  train_loss / train_pose_loss / train_pixel_loss:0.4744 / 0.171 / 0.6066
+2020-12-30 14:42:29,957 :  *  test_loss / test_pose_loss / test_pixel_loss: 1.0625 / 0.1713 / 1.7823
+2020-12-30 14:42:29,960 : current best epoch : 213
+2020-12-30 14:42:29,960 : learning_rate = [0.00025, 0.00025]
+2020-12-30 14:42:29,960 : using time: 12.8995 min
+2020-12-30 14:42:29,960 : **** Epoch:216/300
+2020-12-30 14:54:10,064 :  *  train_loss / train_pose_loss / train_pixel_loss:0.4822 / 0.1697 / 0.625
+2020-12-30 14:55:21,409 :  *  test_loss / test_pose_loss / test_pixel_loss: 1.0617 / 0.1654 / 1.7927
+2020-12-30 14:55:21,411 : current best epoch : 213
+2020-12-30 14:55:21,411 : learning_rate = [0.00025, 0.00025]
+2020-12-30 14:55:21,411 : using time: 12.8575 min
+2020-12-30 14:55:21,411 : **** Epoch:217/300
+2020-12-30 15:07:04,162 :  *  train_loss / train_pose_loss / train_pixel_loss:0.507 / 0.1702 / 0.6735
+2020-12-30 15:08:16,104 :  *  test_loss / test_pose_loss / test_pixel_loss: 1.1021 / 0.1833 / 1.8374
+2020-12-30 15:08:16,105 : current best epoch : 213
+2020-12-30 15:08:16,105 : learning_rate = [0.00025, 0.00025]
+2020-12-30 15:08:16,105 : using time: 12.9116 min
+2020-12-30 15:08:16,105 : **** Epoch:218/300
+2020-12-30 15:20:07,111 :  *  train_loss / train_pose_loss / train_pixel_loss:0.4764 / 0.1673 / 0.618
+2020-12-30 15:21:19,121 :  *  test_loss / test_pose_loss / test_pixel_loss: 0.9564 / 0.1577 / 1.5974
+2020-12-30 15:21:19,123 : current best epoch : 213
+2020-12-30 15:21:19,123 : learning_rate = [0.00025, 0.00025]
+2020-12-30 15:21:19,123 : using time: 13.0503 min
+2020-12-30 15:21:19,124 : **** Epoch:219/300
+2020-12-30 15:33:06,638 :  *  train_loss / train_pose_loss / train_pixel_loss:0.4892 / 0.1723 / 0.6338
+2020-12-30 15:34:15,767 :  *  test_loss / test_pose_loss / test_pixel_loss: 0.9808 / 0.1603 / 1.6411
+2020-12-30 15:34:15,769 : current best epoch : 213
+2020-12-30 15:34:15,769 : learning_rate = [0.00025, 0.00025]
+2020-12-30 15:34:15,769 : using time: 12.9441 min
+2020-12-30 15:34:15,769 : **** Epoch:220/300
+2020-12-30 15:45:58,896 :  *  train_loss / train_pose_loss / train_pixel_loss:0.4937 / 0.1725 / 0.6424
+2020-12-30 15:47:10,718 :  *  test_loss / test_pose_loss / test_pixel_loss: 1.1704 / 0.19 / 1.9608
+2020-12-30 15:47:10,719 : current best epoch : 213
+2020-12-30 15:47:10,719 : learning_rate = [0.00025, 0.00025]
+2020-12-30 15:47:10,719 : using time: 12.9158 min
+2020-12-30 15:47:10,720 : **** Epoch:221/300
+2020-12-30 15:58:56,165 :  *  train_loss / train_pose_loss / train_pixel_loss:0.4768 / 0.1693 / 0.6151
+2020-12-30 16:00:04,906 :  *  test_loss / test_pose_loss / test_pixel_loss: 0.9366 / 0.1654 / 1.5424
+2020-12-30 16:00:04,908 : current best epoch : 213
+2020-12-30 16:00:04,909 : learning_rate = [0.00025, 0.00025]
+2020-12-30 16:00:04,909 : using time: 12.9032 min
+2020-12-30 16:00:04,909 : **** Epoch:222/300
+2020-12-30 16:12:00,330 :  *  train_loss / train_pose_loss / train_pixel_loss:0.4986 / 0.1769 / 0.6433
+2020-12-30 16:13:11,888 :  *  test_loss / test_pose_loss / test_pixel_loss: 1.0889 / 0.211 / 1.7559
+2020-12-30 16:13:11,890 : current best epoch : 213
+2020-12-30 16:13:11,890 : learning_rate = [0.00025, 0.00025]
+2020-12-30 16:13:11,890 : using time: 13.1164 min
+2020-12-30 16:13:11,890 : **** Epoch:223/300
+2020-12-30 16:24:50,991 :  *  train_loss / train_pose_loss / train_pixel_loss:0.476 / 0.1716 / 0.6089
+2020-12-30 16:26:02,329 :  *  test_loss / test_pose_loss / test_pixel_loss: 1.1251 / 0.1924 / 1.8655
+2020-12-30 16:26:02,330 : current best epoch : 213
+2020-12-30 16:26:02,330 : learning_rate = [0.00025, 0.00025]
+2020-12-30 16:26:02,330 : using time: 12.8407 min
+2020-12-30 16:26:02,331 : **** Epoch:224/300
+2020-12-30 16:37:50,003 :  *  train_loss / train_pose_loss / train_pixel_loss:0.4735 / 0.1712 / 0.6045
+2020-12-30 16:39:01,636 :  *  test_loss / test_pose_loss / test_pixel_loss: 1.0207 / 0.2105 / 1.6203
+2020-12-30 16:39:01,638 : current best epoch : 213
+2020-12-30 16:39:01,638 : learning_rate = [0.00025, 0.00025]
+2020-12-30 16:39:01,638 : using time: 12.9885 min
+2020-12-30 16:39:01,638 : **** Epoch:225/300
+2020-12-30 16:50:49,806 :  *  train_loss / train_pose_loss / train_pixel_loss:0.4818 / 0.1793 / 0.6049
+2020-12-30 16:52:01,374 :  *  test_loss / test_pose_loss / test_pixel_loss: 0.9561 / 0.1795 / 1.5533
+2020-12-30 16:52:01,375 : current best epoch : 213
+2020-12-30 16:52:01,375 : learning_rate = [0.00025, 0.00025]
+2020-12-30 16:52:01,375 : using time: 12.9956 min
+2020-12-30 16:52:01,375 : **** Epoch:226/300
+2020-12-30 17:03:44,886 :  *  train_loss / train_pose_loss / train_pixel_loss:0.4897 / 0.178 / 0.6233
+2020-12-30 17:04:56,197 :  *  test_loss / test_pose_loss / test_pixel_loss: 1.0102 / 0.1898 / 1.6408
+2020-12-30 17:04:56,199 : current best epoch : 213
+2020-12-30 17:04:56,199 : learning_rate = [0.00025, 0.00025]
+2020-12-30 17:04:56,199 : using time: 12.9137 min
+2020-12-30 17:04:56,199 : **** Epoch:227/300
+2020-12-30 17:16:39,661 :  *  train_loss / train_pose_loss / train_pixel_loss:0.4955 / 0.1764 / 0.6383
+2020-12-30 17:17:53,093 :  *  test_loss / test_pose_loss / test_pixel_loss: 0.7588 / 0.1755 / 1.1664
+2020-12-30 17:17:57,228 : current best epoch : 227
+2020-12-30 17:17:57,229 : learning_rate = [0.00025, 0.00025]
+2020-12-30 17:17:57,229 : using time: 13.0172 min
+2020-12-30 17:17:57,229 : **** Epoch:228/300
+2020-12-30 17:29:35,401 :  *  train_loss / train_pose_loss / train_pixel_loss:0.478 / 0.1706 / 0.6148
+2020-12-30 17:30:47,773 :  *  test_loss / test_pose_loss / test_pixel_loss: 1.0352 / 0.2008 / 1.6687
+2020-12-30 17:30:47,775 : current best epoch : 227
+2020-12-30 17:30:47,775 : learning_rate = [0.00025, 0.00025]
+2020-12-30 17:30:47,776 : using time: 12.8424 min
+2020-12-30 17:30:47,776 : **** Epoch:229/300
+2020-12-30 17:42:28,080 :  *  train_loss / train_pose_loss / train_pixel_loss:0.4898 / 0.1724 / 0.6348
+2020-12-30 17:43:39,034 :  *  test_loss / test_pose_loss / test_pixel_loss: 0.9293 / 0.1621 / 1.5345
+2020-12-30 17:43:39,036 : current best epoch : 227
+2020-12-30 17:43:39,036 : learning_rate = [0.00025, 0.00025]
+2020-12-30 17:43:39,036 : using time: 12.8543 min
+2020-12-30 17:43:39,036 : **** Epoch:230/300
+2020-12-30 17:55:29,247 :  *  train_loss / train_pose_loss / train_pixel_loss:0.4872 / 0.1715 / 0.6315
+2020-12-30 17:56:40,236 :  *  test_loss / test_pose_loss / test_pixel_loss: 0.9083 / 0.1681 / 1.4803
+2020-12-30 17:56:40,237 : current best epoch : 227
+2020-12-30 17:56:40,238 : learning_rate = [0.00025, 0.00025]
+2020-12-30 17:56:40,238 : using time: 13.02 min
+2020-12-30 17:56:40,238 : **** Epoch:231/300
+2020-12-30 18:08:29,449 :  *  train_loss / train_pose_loss / train_pixel_loss:0.493 / 0.1751 / 0.6357
+2020-12-30 18:09:38,742 :  *  test_loss / test_pose_loss / test_pixel_loss: 1.0268 / 0.2027 / 1.6482
+2020-12-30 18:09:38,743 : current best epoch : 227
+2020-12-30 18:09:38,743 : learning_rate = [0.00025, 0.00025]
+2020-12-30 18:09:38,744 : using time: 12.9751 min
+2020-12-30 18:09:38,744 : **** Epoch:232/300
+2020-12-30 18:21:14,599 :  *  train_loss / train_pose_loss / train_pixel_loss:0.4831 / 0.169 / 0.6283
+2020-12-30 18:22:24,762 :  *  test_loss / test_pose_loss / test_pixel_loss: 1.2088 / 0.1666 / 2.0844
+2020-12-30 18:22:24,763 : current best epoch : 227
+2020-12-30 18:22:24,763 : learning_rate = [0.00025, 0.00025]
+2020-12-30 18:22:24,764 : using time: 12.767 min
+2020-12-30 18:22:24,764 : **** Epoch:233/300
+2020-12-30 18:34:04,583 :  *  train_loss / train_pose_loss / train_pixel_loss:0.4851 / 0.1767 / 0.6167
+2020-12-30 18:35:17,138 :  *  test_loss / test_pose_loss / test_pixel_loss: 1.0134 / 0.1723 / 1.6823
+2020-12-30 18:35:17,139 : current best epoch : 227
+2020-12-30 18:35:17,139 : learning_rate = [0.00025, 0.00025]
+2020-12-30 18:35:17,139 : using time: 12.8729 min
+2020-12-30 18:35:17,139 : **** Epoch:234/300
+2020-12-30 18:47:05,953 :  *  train_loss / train_pose_loss / train_pixel_loss:0.492 / 0.1767 / 0.6306
+2020-12-30 18:48:18,115 :  *  test_loss / test_pose_loss / test_pixel_loss: 0.9985 / 0.1515 / 1.694
+2020-12-30 18:48:18,117 : current best epoch : 227
+2020-12-30 18:48:18,117 : learning_rate = [0.00025, 0.00025]
+2020-12-30 18:48:18,117 : using time: 13.0163 min
+2020-12-30 18:48:18,117 : **** Epoch:235/300
+2020-12-30 19:00:07,734 :  *  train_loss / train_pose_loss / train_pixel_loss:0.4846 / 0.1716 / 0.626
+2020-12-30 19:01:17,450 :  *  test_loss / test_pose_loss / test_pixel_loss: 0.8209 / 0.2016 / 1.2386
+2020-12-30 19:01:17,451 : current best epoch : 227
+2020-12-30 19:01:17,452 : learning_rate = [0.00025, 0.00025]
+2020-12-30 19:01:17,452 : using time: 12.9889 min
+2020-12-30 19:01:17,452 : **** Epoch:236/300
+2020-12-30 19:12:58,529 :  *  train_loss / train_pose_loss / train_pixel_loss:0.4877 / 0.1681 / 0.6393
+2020-12-30 19:14:10,500 :  *  test_loss / test_pose_loss / test_pixel_loss: 0.8306 / 0.1645 / 1.3323
+2020-12-30 19:14:10,501 : current best epoch : 227
+2020-12-30 19:14:10,502 : learning_rate = [0.00025, 0.00025]
+2020-12-30 19:14:10,502 : using time: 12.8842 min
+2020-12-30 19:14:10,502 : **** Epoch:237/300
+2020-12-30 19:25:52,036 :  *  train_loss / train_pose_loss / train_pixel_loss:0.4953 / 0.1694 / 0.6519
+2020-12-30 19:27:04,075 :  *  test_loss / test_pose_loss / test_pixel_loss: 1.1711 / 0.1936 / 1.9549
+2020-12-30 19:27:04,076 : current best epoch : 227
+2020-12-30 19:27:04,077 : learning_rate = [0.00025, 0.00025]
+2020-12-30 19:27:04,077 : using time: 12.8929 min
+2020-12-30 19:27:04,077 : **** Epoch:238/300
+2020-12-30 19:38:54,056 :  *  train_loss / train_pose_loss / train_pixel_loss:0.4919 / 0.1771 / 0.6296
+2020-12-30 19:40:05,765 :  *  test_loss / test_pose_loss / test_pixel_loss: 1.1376 / 0.1627 / 1.9499
+2020-12-30 19:40:05,767 : current best epoch : 227
+2020-12-30 19:40:05,767 : learning_rate = [0.00025, 0.00025]
+2020-12-30 19:40:05,767 : using time: 13.0282 min
+2020-12-30 19:40:05,767 : **** Epoch:239/300
+2020-12-30 19:51:50,551 :  *  train_loss / train_pose_loss / train_pixel_loss:0.4762 / 0.1689 / 0.6145
+2020-12-30 19:52:59,481 :  *  test_loss / test_pose_loss / test_pixel_loss: 1.1885 / 0.1645 / 2.0479
+2020-12-30 19:52:59,482 : current best epoch : 227
+2020-12-30 19:52:59,483 : learning_rate = [0.00025, 0.00025]
+2020-12-30 19:52:59,483 : using time: 12.8953 min
+2020-12-30 19:52:59,483 : **** Epoch:240/300
+2020-12-30 20:04:48,834 :  *  train_loss / train_pose_loss / train_pixel_loss:0.4788 / 0.1735 / 0.6108
+2020-12-30 20:05:57,191 :  *  test_loss / test_pose_loss / test_pixel_loss: 1.1783 / 0.1853 / 1.9859
+2020-12-30 20:05:57,193 : current best epoch : 227
+2020-12-30 20:05:57,193 : learning_rate = [0.00025, 0.00025]
+2020-12-30 20:05:57,193 : using time: 12.9618 min
+2020-12-30 20:05:57,193 : **** Epoch:241/300
+2020-12-30 20:17:42,217 :  *  train_loss / train_pose_loss / train_pixel_loss:0.4725 / 0.178 / 0.589
+2020-12-30 20:18:52,934 :  *  test_loss / test_pose_loss / test_pixel_loss: 0.8314 / 0.1871 / 1.2884
+2020-12-30 20:18:52,936 : current best epoch : 227
+2020-12-30 20:18:52,936 : learning_rate = [0.00025, 0.00025]
+2020-12-30 20:18:52,936 : using time: 12.929 min
+2020-12-30 20:18:52,936 : **** Epoch:242/300
+2020-12-30 20:30:32,129 :  *  train_loss / train_pose_loss / train_pixel_loss:0.4924 / 0.1733 / 0.6383
+2020-12-30 20:31:41,972 :  *  test_loss / test_pose_loss / test_pixel_loss: 1.2472 / 0.1973 / 2.0999
+2020-12-30 20:31:41,974 : current best epoch : 227
+2020-12-30 20:31:41,974 : learning_rate = [0.00025, 0.00025]
+2020-12-30 20:31:41,975 : using time: 12.8173 min
+2020-12-30 20:31:41,975 : **** Epoch:243/300
+2020-12-30 20:43:44,869 :  *  train_loss / train_pose_loss / train_pixel_loss:0.4848 / 0.173 / 0.6236
+2020-12-30 20:44:55,594 :  *  test_loss / test_pose_loss / test_pixel_loss: 1.0048 / 0.159 / 1.6915
+2020-12-30 20:44:55,596 : current best epoch : 227
+2020-12-30 20:44:55,596 : learning_rate = [0.00025, 0.00025]
+2020-12-30 20:44:55,596 : using time: 13.227 min
+2020-12-30 20:44:55,596 : **** Epoch:244/300
+2020-12-30 20:56:58,122 :  *  train_loss / train_pose_loss / train_pixel_loss:0.4927 / 0.1764 / 0.6327
+2020-12-30 20:58:08,699 :  *  test_loss / test_pose_loss / test_pixel_loss: 0.8102 / 0.1562 / 1.3079
+2020-12-30 20:58:08,701 : current best epoch : 227
+2020-12-30 20:58:08,702 : learning_rate = [0.00025, 0.00025]
+2020-12-30 20:58:08,702 : using time: 13.2184 min
+2020-12-30 20:58:08,702 : **** Epoch:245/300
+2020-12-30 21:10:08,118 :  *  train_loss / train_pose_loss / train_pixel_loss:0.478 / 0.1722 / 0.6115
+2020-12-30 21:11:19,310 :  *  test_loss / test_pose_loss / test_pixel_loss: 1.062 / 0.1799 / 1.7642
+2020-12-30 21:11:19,312 : current best epoch : 227
+2020-12-30 21:11:19,312 : learning_rate = [0.00025, 0.00025]
+2020-12-30 21:11:19,312 : using time: 13.1768 min
+2020-12-30 21:11:19,312 : **** Epoch:246/300
+2020-12-30 21:23:18,535 :  *  train_loss / train_pose_loss / train_pixel_loss:0.4869 / 0.1721 / 0.6295
+2020-12-30 21:24:29,754 :  *  test_loss / test_pose_loss / test_pixel_loss: 1.114 / 0.1535 / 1.9209
+2020-12-30 21:24:29,755 : current best epoch : 227
+2020-12-30 21:24:29,756 : learning_rate = [0.00025, 0.00025]
+2020-12-30 21:24:29,756 : using time: 13.1741 min
+2020-12-30 21:24:29,756 : **** Epoch:247/300
+2020-12-30 21:36:21,115 :  *  train_loss / train_pose_loss / train_pixel_loss:0.4937 / 0.1751 / 0.6374
+2020-12-30 21:37:31,704 :  *  test_loss / test_pose_loss / test_pixel_loss: 0.7293 / 0.168 / 1.1225
+2020-12-30 21:37:35,808 : current best epoch : 247
+2020-12-30 21:37:35,809 : learning_rate = [0.00025, 0.00025]
+2020-12-30 21:37:35,809 : using time: 13.1009 min
+2020-12-30 21:37:35,809 : **** Epoch:248/300
+2020-12-30 21:49:40,846 :  *  train_loss / train_pose_loss / train_pixel_loss:0.485 / 0.1729 / 0.6242
+2020-12-30 21:50:56,120 :  *  test_loss / test_pose_loss / test_pixel_loss: 0.9858 / 0.1738 / 1.6241
+2020-12-30 21:50:56,122 : current best epoch : 247
+2020-12-30 21:50:56,122 : learning_rate = [0.00025, 0.00025]
+2020-12-30 21:50:56,122 : using time: 13.3386 min
+2020-12-30 21:50:56,123 : **** Epoch:249/300
+2020-12-30 22:02:57,029 :  *  train_loss / train_pose_loss / train_pixel_loss:0.4717 / 0.171 / 0.6014
+2020-12-30 22:04:08,999 :  *  test_loss / test_pose_loss / test_pixel_loss: 1.0294 / 0.1867 / 1.6853
+2020-12-30 22:04:09,000 : current best epoch : 247
+2020-12-30 22:04:09,001 : learning_rate = [0.00025, 0.00025]
+2020-12-30 22:04:09,001 : using time: 13.2146 min
+2020-12-30 22:04:09,001 : **** Epoch:250/300
+2020-12-30 22:16:09,057 :  *  train_loss / train_pose_loss / train_pixel_loss:0.4653 / 0.1693 / 0.5921
+2020-12-30 22:17:17,526 :  *  test_loss / test_pose_loss / test_pixel_loss: 0.7213 / 0.1721 / 1.0983
+2020-12-30 22:17:21,650 : current best epoch : 250
+2020-12-30 22:17:21,650 : learning_rate = [0.00025, 0.00025]
+2020-12-30 22:17:21,651 : using time: 13.2108 min
+2020-12-30 22:17:21,651 : **** Epoch:251/300
+2020-12-30 22:29:19,784 :  *  train_loss / train_pose_loss / train_pixel_loss:0.4886 / 0.1723 / 0.6326
+2020-12-30 22:30:28,684 :  *  test_loss / test_pose_loss / test_pixel_loss: 0.7219 / 0.148 / 1.1477
+2020-12-30 22:30:28,685 : current best epoch : 250
+2020-12-30 22:30:28,685 : learning_rate = [0.00025, 0.00025]
+2020-12-30 22:30:28,685 : using time: 13.1172 min
+2020-12-30 22:30:28,685 : **** Epoch:252/300
+2020-12-30 22:42:24,617 :  *  train_loss / train_pose_loss / train_pixel_loss:0.4781 / 0.173 / 0.6103
+2020-12-30 22:43:37,196 :  *  test_loss / test_pose_loss / test_pixel_loss: 1.1018 / 0.1705 / 1.8626
+2020-12-30 22:43:37,197 : current best epoch : 250
+2020-12-30 22:43:37,198 : learning_rate = [0.00025, 0.00025]
+2020-12-30 22:43:37,198 : using time: 13.1419 min
+2020-12-30 22:43:37,198 : **** Epoch:253/300
+2020-12-30 22:55:33,708 :  *  train_loss / train_pose_loss / train_pixel_loss:0.4842 / 0.1676 / 0.6333
+2020-12-30 22:56:44,369 :  *  test_loss / test_pose_loss / test_pixel_loss: 0.9918 / 0.1824 / 1.6188
+2020-12-30 22:56:44,371 : current best epoch : 250
+2020-12-30 22:56:44,371 : learning_rate = [0.00025, 0.00025]
+2020-12-30 22:56:44,371 : using time: 13.1196 min
+2020-12-30 22:56:44,371 : **** Epoch:254/300
+2020-12-30 23:08:32,949 :  *  train_loss / train_pose_loss / train_pixel_loss:0.4896 / 0.1782 / 0.6229
+2020-12-30 23:09:45,279 :  *  test_loss / test_pose_loss / test_pixel_loss: 0.9396 / 0.1664 / 1.5464
+2020-12-30 23:09:45,280 : current best epoch : 250
+2020-12-30 23:09:45,281 : learning_rate = [0.00025, 0.00025]
+2020-12-30 23:09:45,281 : using time: 13.0152 min
+2020-12-30 23:09:45,281 : **** Epoch:255/300
+2020-12-30 23:21:29,634 :  *  train_loss / train_pose_loss / train_pixel_loss:0.4826 / 0.1738 / 0.6176
+2020-12-30 23:22:40,892 :  *  test_loss / test_pose_loss / test_pixel_loss: 0.9788 / 0.153 / 1.6517
+2020-12-30 23:22:40,894 : current best epoch : 250
+2020-12-30 23:22:40,894 : learning_rate = [0.00025, 0.00025]
+2020-12-30 23:22:40,894 : using time: 12.9269 min
+2020-12-30 23:22:40,894 : **** Epoch:256/300
+2020-12-30 23:34:40,826 :  *  train_loss / train_pose_loss / train_pixel_loss:0.4826 / 0.1674 / 0.6303
+2020-12-30 23:35:52,379 :  *  test_loss / test_pose_loss / test_pixel_loss: 1.1399 / 0.1886 / 1.9026
+2020-12-30 23:35:52,380 : current best epoch : 250
+2020-12-30 23:35:52,381 : learning_rate = [0.00025, 0.00025]
+2020-12-30 23:35:52,381 : using time: 13.1914 min
+2020-12-30 23:35:52,381 : **** Epoch:257/300
+2020-12-30 23:47:50,355 :  *  train_loss / train_pose_loss / train_pixel_loss:0.4813 / 0.1673 / 0.628
+2020-12-30 23:49:01,554 :  *  test_loss / test_pose_loss / test_pixel_loss: 0.7953 / 0.1589 / 1.2728
+2020-12-30 23:49:01,555 : current best epoch : 250
+2020-12-30 23:49:01,556 : learning_rate = [0.00025, 0.00025]
+2020-12-30 23:49:01,556 : using time: 13.1529 min
+2020-12-30 23:49:01,556 : **** Epoch:258/300
+2020-12-31 00:00:51,906 :  *  train_loss / train_pose_loss / train_pixel_loss:0.4618 / 0.1685 / 0.5866
+2020-12-31 00:02:04,077 :  *  test_loss / test_pose_loss / test_pixel_loss: 1.0158 / 0.1814 / 1.6688
+2020-12-31 00:02:04,079 : current best epoch : 250
+2020-12-31 00:02:04,079 : learning_rate = [0.00025, 0.00025]
+2020-12-31 00:02:04,079 : using time: 13.0421 min
+2020-12-31 00:02:04,079 : **** Epoch:259/300
+2020-12-31 00:13:58,016 :  *  train_loss / train_pose_loss / train_pixel_loss:0.4906 / 0.1665 / 0.6482
+2020-12-31 00:15:10,755 :  *  test_loss / test_pose_loss / test_pixel_loss: 0.727 / 0.1484 / 1.1572
+2020-12-31 00:15:10,756 : current best epoch : 250
+2020-12-31 00:15:10,756 : learning_rate = [0.00025, 0.00025]
+2020-12-31 00:15:10,756 : using time: 13.1113 min
+2020-12-31 00:15:10,756 : **** Epoch:260/300
+2020-12-31 00:26:51,383 :  *  train_loss / train_pose_loss / train_pixel_loss:0.4948 / 0.1739 / 0.6418
+2020-12-31 00:28:02,154 :  *  test_loss / test_pose_loss / test_pixel_loss: 0.812 / 0.1732 / 1.2776
+2020-12-31 00:28:02,156 : current best epoch : 250
+2020-12-31 00:28:02,156 : learning_rate = [0.00025, 0.00025]
+2020-12-31 00:28:02,156 : using time: 12.8567 min
+2020-12-31 00:28:02,156 : **** Epoch:261/300
+2020-12-31 00:40:00,490 :  *  train_loss / train_pose_loss / train_pixel_loss:0.4868 / 0.1766 / 0.6203
+2020-12-31 00:41:10,462 :  *  test_loss / test_pose_loss / test_pixel_loss: 0.9322 / 0.1544 / 1.5555
+2020-12-31 00:41:10,463 : current best epoch : 250
+2020-12-31 00:41:10,463 : learning_rate = [0.00025, 0.00025]
+2020-12-31 00:41:10,463 : using time: 13.1385 min
+2020-12-31 00:41:10,463 : **** Epoch:262/300
+2020-12-31 00:53:02,518 :  *  train_loss / train_pose_loss / train_pixel_loss:0.4729 / 0.1671 / 0.6116
+2020-12-31 00:54:15,409 :  *  test_loss / test_pose_loss / test_pixel_loss: 0.9098 / 0.1699 / 1.4798
+2020-12-31 00:54:15,412 : current best epoch : 250
+2020-12-31 00:54:15,412 : learning_rate = [0.00025, 0.00025]
+2020-12-31 00:54:15,412 : using time: 13.0825 min
+2020-12-31 00:54:15,412 : **** Epoch:263/300
+2020-12-31 01:05:49,574 :  *  train_loss / train_pose_loss / train_pixel_loss:0.4825 / 0.1723 / 0.6204
+2020-12-31 01:06:59,405 :  *  test_loss / test_pose_loss / test_pixel_loss: 0.8545 / 0.153 / 1.403
+2020-12-31 01:06:59,406 : current best epoch : 250
+2020-12-31 01:06:59,407 : learning_rate = [0.00025, 0.00025]
+2020-12-31 01:06:59,407 : using time: 12.7332 min
+2020-12-31 01:06:59,407 : **** Epoch:264/300
+2020-12-31 01:18:51,183 :  *  train_loss / train_pose_loss / train_pixel_loss:0.5073 / 0.1718 / 0.6709
+2020-12-31 01:20:02,075 :  *  test_loss / test_pose_loss / test_pixel_loss: 0.9098 / 0.1589 / 1.5017
+2020-12-31 01:20:02,076 : current best epoch : 250
+2020-12-31 01:20:02,077 : learning_rate = [0.00025, 0.00025]
+2020-12-31 01:20:02,077 : using time: 13.0445 min
+2020-12-31 01:20:02,077 : **** Epoch:265/300
+2020-12-31 01:31:50,880 :  *  train_loss / train_pose_loss / train_pixel_loss:0.489 / 0.1714 / 0.6351
+2020-12-31 01:33:01,213 :  *  test_loss / test_pose_loss / test_pixel_loss: 1.0012 / 0.1582 / 1.6862
+2020-12-31 01:33:01,214 : current best epoch : 250
+2020-12-31 01:33:01,215 : learning_rate = [0.00025, 0.00025]
+2020-12-31 01:33:01,215 : using time: 12.9856 min
+2020-12-31 01:33:01,215 : **** Epoch:266/300
+2020-12-31 01:44:41,841 :  *  train_loss / train_pose_loss / train_pixel_loss:0.4838 / 0.1695 / 0.6285
+2020-12-31 01:45:52,558 :  *  test_loss / test_pose_loss / test_pixel_loss: 0.8819 / 0.1611 / 1.4415
+2020-12-31 01:45:52,559 : current best epoch : 250
+2020-12-31 01:45:52,560 : learning_rate = [0.00025, 0.00025]
+2020-12-31 01:45:52,560 : using time: 12.8557 min
+2020-12-31 01:45:52,560 : **** Epoch:267/300
+2020-12-31 01:57:42,013 :  *  train_loss / train_pose_loss / train_pixel_loss:0.5041 / 0.1786 / 0.6511
+2020-12-31 01:58:53,510 :  *  test_loss / test_pose_loss / test_pixel_loss: 1.0761 / 0.1881 / 1.7759
+2020-12-31 01:58:53,512 : current best epoch : 250
+2020-12-31 01:58:53,512 : learning_rate = [0.00025, 0.00025]
+2020-12-31 01:58:53,512 : using time: 13.0159 min
+2020-12-31 01:58:53,512 : **** Epoch:268/300
+2020-12-31 02:10:35,982 :  *  train_loss / train_pose_loss / train_pixel_loss:0.4775 / 0.1765 / 0.602
+2020-12-31 02:11:45,776 :  *  test_loss / test_pose_loss / test_pixel_loss: 1.1199 / 0.1674 / 1.905
+2020-12-31 02:11:45,778 : current best epoch : 250
+2020-12-31 02:11:45,778 : learning_rate = [0.00025, 0.00025]
+2020-12-31 02:11:45,778 : using time: 12.8711 min
+2020-12-31 02:11:45,778 : **** Epoch:269/300
+2020-12-31 02:23:24,600 :  *  train_loss / train_pose_loss / train_pixel_loss:0.4782 / 0.1712 / 0.6139
+2020-12-31 02:24:31,980 :  *  test_loss / test_pose_loss / test_pixel_loss: 1.0744 / 0.1967 / 1.7554
+2020-12-31 02:24:31,982 : current best epoch : 250
+2020-12-31 02:24:31,982 : learning_rate = [0.00025, 0.00025]
+2020-12-31 02:24:31,982 : using time: 12.7701 min
+2020-12-31 02:24:31,982 : **** Epoch:270/300
+2020-12-31 02:36:17,360 :  *  train_loss / train_pose_loss / train_pixel_loss:0.4797 / 0.1702 / 0.6189
+2020-12-31 02:37:26,961 :  *  test_loss / test_pose_loss / test_pixel_loss: 0.9873 / 0.1809 / 1.6127
+2020-12-31 02:37:26,962 : current best epoch : 250
+2020-12-31 02:37:26,962 : learning_rate = [0.00025, 0.00025]
+2020-12-31 02:37:26,963 : using time: 12.9163 min
+2020-12-31 02:37:26,963 : **** Epoch:271/300
+2020-12-31 02:49:07,711 :  *  train_loss / train_pose_loss / train_pixel_loss:0.4859 / 0.1656 / 0.6406
+2020-12-31 02:50:18,642 :  *  test_loss / test_pose_loss / test_pixel_loss: 1.1499 / 0.1562 / 1.9875
+2020-12-31 02:50:18,644 : current best epoch : 250
+2020-12-31 02:50:18,644 : learning_rate = [0.00025, 0.00025]
+2020-12-31 02:50:18,644 : using time: 12.8614 min
+2020-12-31 02:50:18,645 : **** Epoch:272/300
+2020-12-31 03:02:01,772 :  *  train_loss / train_pose_loss / train_pixel_loss:0.4895 / 0.1744 / 0.6302
+2020-12-31 03:03:14,355 :  *  test_loss / test_pose_loss / test_pixel_loss: 1.102 / 0.1775 / 1.849
+2020-12-31 03:03:14,357 : current best epoch : 250
+2020-12-31 03:03:14,357 : learning_rate = [0.00025, 0.00025]
+2020-12-31 03:03:14,357 : using time: 12.9285 min
+2020-12-31 03:03:14,357 : **** Epoch:273/300
+2020-12-31 03:15:03,881 :  *  train_loss / train_pose_loss / train_pixel_loss:0.457 / 0.1661 / 0.5817
+2020-12-31 03:16:15,006 :  *  test_loss / test_pose_loss / test_pixel_loss: 0.9088 / 0.1529 / 1.5118
+2020-12-31 03:16:15,008 : current best epoch : 250
+2020-12-31 03:16:15,008 : learning_rate = [0.00025, 0.00025]
+2020-12-31 03:16:15,008 : using time: 13.0108 min
+2020-12-31 03:16:15,008 : **** Epoch:274/300
+2020-12-31 03:27:59,686 :  *  train_loss / train_pose_loss / train_pixel_loss:0.483 / 0.1709 / 0.6242
+2020-12-31 03:29:11,080 :  *  test_loss / test_pose_loss / test_pixel_loss: 1.1523 / 0.1653 / 1.9739
+2020-12-31 03:29:11,081 : current best epoch : 250
+2020-12-31 03:29:11,082 : learning_rate = [0.00025, 0.00025]
+2020-12-31 03:29:11,082 : using time: 12.9346 min
+2020-12-31 03:29:11,082 : **** Epoch:275/300
+2020-12-31 03:40:55,552 :  *  train_loss / train_pose_loss / train_pixel_loss:0.47 / 0.168 / 0.6042
+2020-12-31 03:42:04,787 :  *  test_loss / test_pose_loss / test_pixel_loss: 0.9474 / 0.1591 / 1.5765
+2020-12-31 03:42:04,789 : current best epoch : 250
+2020-12-31 03:42:04,789 : learning_rate = [0.00025, 0.00025]
+2020-12-31 03:42:04,789 : using time: 12.8951 min
+2020-12-31 03:42:04,789 : **** Epoch:276/300
+2020-12-31 03:53:49,130 :  *  train_loss / train_pose_loss / train_pixel_loss:0.4924 / 0.1711 / 0.6427
+2020-12-31 03:55:00,350 :  *  test_loss / test_pose_loss / test_pixel_loss: 0.9499 / 0.1804 / 1.539
+2020-12-31 03:55:00,352 : current best epoch : 250
+2020-12-31 03:55:00,352 : learning_rate = [0.00025, 0.00025]
+2020-12-31 03:55:00,353 : using time: 12.9261 min
+2020-12-31 03:55:00,353 : **** Epoch:277/300
+2020-12-31 04:06:48,761 :  *  train_loss / train_pose_loss / train_pixel_loss:0.4801 / 0.1738 / 0.6126
+2020-12-31 04:07:59,279 :  *  test_loss / test_pose_loss / test_pixel_loss: 1.0163 / 0.1599 / 1.7127
+2020-12-31 04:07:59,280 : current best epoch : 250
+2020-12-31 04:07:59,281 : learning_rate = [0.00025, 0.00025]
+2020-12-31 04:07:59,281 : using time: 12.9821 min
+2020-12-31 04:07:59,281 : **** Epoch:278/300
+2020-12-31 04:19:36,036 :  *  train_loss / train_pose_loss / train_pixel_loss:0.4796 / 0.1752 / 0.6089
+2020-12-31 04:20:44,808 :  *  test_loss / test_pose_loss / test_pixel_loss: 0.8488 / 0.1538 / 1.39
+2020-12-31 04:20:44,809 : current best epoch : 250
+2020-12-31 04:20:44,810 : learning_rate = [0.00025, 0.00025]
+2020-12-31 04:20:44,810 : using time: 12.7588 min
+2020-12-31 04:20:44,810 : **** Epoch:279/300
+2020-12-31 04:32:24,745 :  *  train_loss / train_pose_loss / train_pixel_loss:0.4704 / 0.1698 / 0.6012
+2020-12-31 04:33:36,296 :  *  test_loss / test_pose_loss / test_pixel_loss: 0.9152 / 0.1547 / 1.5211
+2020-12-31 04:33:36,298 : current best epoch : 250
+2020-12-31 04:33:36,298 : learning_rate = [0.00025, 0.00025]
+2020-12-31 04:33:36,298 : using time: 12.8581 min
+2020-12-31 04:33:36,298 : **** Epoch:280/300
+2020-12-31 04:45:18,223 :  *  train_loss / train_pose_loss / train_pixel_loss:0.4699 / 0.1711 / 0.5975
+2020-12-31 04:46:26,670 :  *  test_loss / test_pose_loss / test_pixel_loss: 0.6957 / 0.1501 / 1.0913
+2020-12-31 04:46:30,841 : current best epoch : 280
+2020-12-31 04:46:30,841 : learning_rate = [0.00025, 0.00025]
+2020-12-31 04:46:30,841 : using time: 12.909 min
+2020-12-31 04:46:30,841 : **** Epoch:281/300
+2020-12-31 04:58:11,871 :  *  train_loss / train_pose_loss / train_pixel_loss:0.4753 / 0.1655 / 0.6196
+2020-12-31 04:59:22,707 :  *  test_loss / test_pose_loss / test_pixel_loss: 0.7797 / 0.1628 / 1.2337
+2020-12-31 04:59:22,708 : current best epoch : 280
+2020-12-31 04:59:22,708 : learning_rate = [0.00025, 0.00025]
+2020-12-31 04:59:22,709 : using time: 12.8645 min
+2020-12-31 04:59:22,709 : **** Epoch:282/300
+2020-12-31 05:11:23,035 :  *  train_loss / train_pose_loss / train_pixel_loss:0.4714 / 0.1718 / 0.5991
+2020-12-31 05:12:31,823 :  *  test_loss / test_pose_loss / test_pixel_loss: 0.8703 / 0.1525 / 1.4356
+2020-12-31 05:12:31,825 : current best epoch : 280
+2020-12-31 05:12:31,825 : learning_rate = [0.00025, 0.00025]
+2020-12-31 05:12:31,825 : using time: 13.1519 min
+2020-12-31 05:12:31,825 : **** Epoch:283/300
+2020-12-31 05:24:14,969 :  *  train_loss / train_pose_loss / train_pixel_loss:0.4792 / 0.173 / 0.6123
+2020-12-31 05:25:25,568 :  *  test_loss / test_pose_loss / test_pixel_loss: 1.0178 / 0.1887 / 1.6581
+2020-12-31 05:25:25,570 : current best epoch : 280
+2020-12-31 05:25:25,570 : learning_rate = [0.00025, 0.00025]
+2020-12-31 05:25:25,570 : using time: 12.8958 min
+2020-12-31 05:25:25,570 : **** Epoch:284/300
+2020-12-31 05:37:09,136 :  *  train_loss / train_pose_loss / train_pixel_loss:0.4749 / 0.1703 / 0.6092
+2020-12-31 05:38:19,224 :  *  test_loss / test_pose_loss / test_pixel_loss: 0.7675 / 0.1609 / 1.2133
+2020-12-31 05:38:19,225 : current best epoch : 280
+2020-12-31 05:38:19,226 : learning_rate = [0.00025, 0.00025]
+2020-12-31 05:38:19,226 : using time: 12.8943 min
+2020-12-31 05:38:19,226 : **** Epoch:285/300
+2020-12-31 05:49:58,430 :  *  train_loss / train_pose_loss / train_pixel_loss:0.4857 / 0.1741 / 0.6232
+2020-12-31 05:51:08,463 :  *  test_loss / test_pose_loss / test_pixel_loss: 0.8225 / 0.159 / 1.327
+2020-12-31 05:51:08,464 : current best epoch : 280
+2020-12-31 05:51:08,464 : learning_rate = [0.00025, 0.00025]
+2020-12-31 05:51:08,464 : using time: 12.8206 min
+2020-12-31 05:51:08,464 : **** Epoch:286/300
+2020-12-31 06:02:55,870 :  *  train_loss / train_pose_loss / train_pixel_loss:0.4977 / 0.1734 / 0.6487
+2020-12-31 06:04:06,701 :  *  test_loss / test_pose_loss / test_pixel_loss: 1.1009 / 0.1672 / 1.8675
+2020-12-31 06:04:06,702 : current best epoch : 280
+2020-12-31 06:04:06,702 : learning_rate = [0.00025, 0.00025]
+2020-12-31 06:04:06,703 : using time: 12.9706 min
+2020-12-31 06:04:06,703 : **** Epoch:287/300
+2020-12-31 06:15:49,166 :  *  train_loss / train_pose_loss / train_pixel_loss:0.4897 / 0.1708 / 0.6378
+2020-12-31 06:17:01,334 :  *  test_loss / test_pose_loss / test_pixel_loss: 0.7369 / 0.155 / 1.1638
+2020-12-31 06:17:01,336 : current best epoch : 280
+2020-12-31 06:17:01,336 : learning_rate = [0.00025, 0.00025]
+2020-12-31 06:17:01,336 : using time: 12.9106 min
+2020-12-31 06:17:01,336 : **** Epoch:288/300
+2020-12-31 06:28:58,387 :  *  train_loss / train_pose_loss / train_pixel_loss:0.4716 / 0.1685 / 0.6062
+2020-12-31 06:30:09,230 :  *  test_loss / test_pose_loss / test_pixel_loss: 0.9469 / 0.1496 / 1.5946
+2020-12-31 06:30:09,231 : current best epoch : 280
+2020-12-31 06:30:09,232 : learning_rate = [0.00025, 0.00025]
+2020-12-31 06:30:09,232 : using time: 13.1316 min
+2020-12-31 06:30:09,232 : **** Epoch:289/300
+2020-12-31 06:42:06,131 :  *  train_loss / train_pose_loss / train_pixel_loss:0.4725 / 0.17 / 0.605
+2020-12-31 06:43:17,856 :  *  test_loss / test_pose_loss / test_pixel_loss: 0.9305 / 0.1699 / 1.5211
+2020-12-31 06:43:17,858 : current best epoch : 280
+2020-12-31 06:43:17,859 : learning_rate = [0.00025, 0.00025]
+2020-12-31 06:43:17,859 : using time: 13.1438 min
+2020-12-31 06:43:17,859 : **** Epoch:290/300
+2020-12-31 06:55:20,619 :  *  train_loss / train_pose_loss / train_pixel_loss:0.4739 / 0.1686 / 0.6105
+2020-12-31 06:56:31,722 :  *  test_loss / test_pose_loss / test_pixel_loss: 0.8744 / 0.16 / 1.4287
+2020-12-31 06:56:31,723 : current best epoch : 280
+2020-12-31 06:56:31,724 : learning_rate = [0.00025, 0.00025]
+2020-12-31 06:56:31,724 : using time: 13.2311 min
+2020-12-31 06:56:31,724 : **** Epoch:291/300
+2020-12-31 07:08:19,479 :  *  train_loss / train_pose_loss / train_pixel_loss:0.4741 / 0.1712 / 0.6058
+2020-12-31 07:09:32,372 :  *  test_loss / test_pose_loss / test_pixel_loss: 1.056 / 0.1625 / 1.787
+2020-12-31 07:09:32,374 : current best epoch : 280
+2020-12-31 07:09:32,375 : learning_rate = [0.00025, 0.00025]
+2020-12-31 07:09:32,375 : using time: 13.0108 min
+2020-12-31 07:09:32,375 : **** Epoch:292/300
+2020-12-31 07:21:28,217 :  *  train_loss / train_pose_loss / train_pixel_loss:0.4727 / 0.1731 / 0.5992
+2020-12-31 07:22:37,421 :  *  test_loss / test_pose_loss / test_pixel_loss: 1.0543 / 0.155 / 1.7986
+2020-12-31 07:22:37,423 : current best epoch : 280
+2020-12-31 07:22:37,423 : learning_rate = [0.00025, 0.00025]
+2020-12-31 07:22:37,423 : using time: 13.0841 min
+2020-12-31 07:22:37,423 : **** Epoch:293/300
+2020-12-31 07:34:30,319 :  *  train_loss / train_pose_loss / train_pixel_loss:0.4701 / 0.1666 / 0.6071
+2020-12-31 07:35:42,282 :  *  test_loss / test_pose_loss / test_pixel_loss: 0.7971 / 0.1442 / 1.3059
+2020-12-31 07:35:42,284 : current best epoch : 280
+2020-12-31 07:35:42,284 : learning_rate = [0.00025, 0.00025]
+2020-12-31 07:35:42,285 : using time: 13.081 min
+2020-12-31 07:35:42,285 : **** Epoch:294/300
+2020-12-31 07:47:36,395 :  *  train_loss / train_pose_loss / train_pixel_loss:0.4837 / 0.1741 / 0.6192
+2020-12-31 07:48:46,617 :  *  test_loss / test_pose_loss / test_pixel_loss: 0.8206 / 0.1644 / 1.3125
+2020-12-31 07:48:46,619 : current best epoch : 280
+2020-12-31 07:48:46,619 : learning_rate = [0.00025, 0.00025]
+2020-12-31 07:48:46,619 : using time: 13.0722 min
+2020-12-31 07:48:46,619 : **** Epoch:295/300
+2020-12-31 08:00:38,849 :  *  train_loss / train_pose_loss / train_pixel_loss:0.4551 / 0.1674 / 0.5753
+2020-12-31 08:01:50,576 :  *  test_loss / test_pose_loss / test_pixel_loss: 0.7571 / 0.1558 / 1.2025
+2020-12-31 08:01:50,577 : current best epoch : 280
+2020-12-31 08:01:50,578 : learning_rate = [0.00025, 0.00025]
+2020-12-31 08:01:50,578 : using time: 13.066 min
+2020-12-31 08:01:50,578 : **** Epoch:296/300
+2020-12-31 08:13:43,148 :  *  train_loss / train_pose_loss / train_pixel_loss:0.4665 / 0.1712 / 0.5906
+2020-12-31 08:14:57,111 :  *  test_loss / test_pose_loss / test_pixel_loss: 0.7804 / 0.154 / 1.2529
+2020-12-31 08:14:57,113 : current best epoch : 280
+2020-12-31 08:14:57,114 : learning_rate = [0.00025, 0.00025]
+2020-12-31 08:14:57,114 : using time: 13.1089 min
+2020-12-31 08:14:57,114 : **** Epoch:297/300
+2020-12-31 08:26:58,511 :  *  train_loss / train_pose_loss / train_pixel_loss:0.468 / 0.1679 / 0.6002
+2020-12-31 08:28:11,261 :  *  test_loss / test_pose_loss / test_pixel_loss: 1.1963 / 0.1679 / 2.0569
+2020-12-31 08:28:11,262 : current best epoch : 280
+2020-12-31 08:28:11,262 : learning_rate = [0.00025, 0.00025]
+2020-12-31 08:28:11,263 : using time: 13.2358 min
+2020-12-31 08:28:11,263 : **** Epoch:298/300
+2020-12-31 08:40:00,956 :  *  train_loss / train_pose_loss / train_pixel_loss:0.4731 / 0.1661 / 0.6141
+2020-12-31 08:41:12,792 :  *  test_loss / test_pose_loss / test_pixel_loss: 0.8685 / 0.1501 / 1.4367
+2020-12-31 08:41:12,793 : current best epoch : 280
+2020-12-31 08:41:12,793 : learning_rate = [0.00025, 0.00025]
+2020-12-31 08:41:12,793 : using time: 13.0255 min
+2020-12-31 08:41:12,793 : **** Epoch:299/300
+2020-12-31 08:53:02,282 :  *  train_loss / train_pose_loss / train_pixel_loss:0.4687 / 0.1653 / 0.6067
+2020-12-31 08:54:14,250 :  *  test_loss / test_pose_loss / test_pixel_loss: 0.6487 / 0.1609 / 0.9757
+2020-12-31 08:54:18,355 : current best epoch : 299
+2020-12-31 08:54:18,356 : learning_rate = [0.00025, 0.00025]
+2020-12-31 08:54:18,356 : using time: 13.0927 min
+2020-12-31 08:54:18,356 : **** Epoch:300/300
+2020-12-31 09:06:06,830 :  *  train_loss / train_pose_loss / train_pixel_loss:0.4815 / 0.1671 / 0.6289
+2020-12-31 09:07:17,429 :  *  test_loss / test_pose_loss / test_pixel_loss: 0.955 / 0.1619 / 1.5862
+2020-12-31 09:07:17,431 : current best epoch : 299
+2020-12-31 09:07:17,431 : learning_rate = [0.00025, 0.00025]
+2020-12-31 09:07:17,431 : using time: 12.9846 min
+2020-12-31 09:07:17,432 : Training finished . 
+2020-12-31 09:07:17,432 : Using time: 64 h 37 min
+2020-12-31 09:07:17,432 : each epoch using time: 12 min
+2020-12-31 09:07:17,605 : Start Test.
+2020-12-31 09:23:46,195 : Test finished.
