@@ -1,3 +1,6 @@
+This is a little demo of deep-learning based odomentry write by myself.
+The demo has tested on the Kitti Dasaset.
+
 # Multi_view_Cylinder_Net
 
 An end-to-end deep-learning-based lidar odometry.
@@ -15,6 +18,38 @@ In order to ensure the speed of odometry, cylinder projection of  lidar points i
 ##### Illustration of multi-view projection and segmentation
 
 ![image-20210121232308753](C:\Users\phy12321\AppData\Roaming\Typora\typora-user-images\image-20210121232308753.png)
+
+## Run
+
+#### Dependencies
+
+```bash
+python>3.6
+pytorch>=1.5
+cupy
+tqdm
+shutil
+matplotlib
+glob
+argparse
+```
+
+#### Train
+
+Firstly, change the config information in `args.py`.
+
+Then run, 
+
+`python train.py`
+
+##### Test
+
+Change the config information in `args.py` and run,
+
+`python test.py`
+
+
+
 
 ## Results on Kitti
 
